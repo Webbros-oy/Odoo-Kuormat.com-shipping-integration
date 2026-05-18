@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="wb_view_picking_form_inherit_kuormat" model="ir.ui.view">
+        <field name="name">wb.stock.picking.form.inherit.kuormat</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <field name="wb_kuormat_is_kuormat" invisible="1"/>
+                <field name="wb_kuormat_show_price" invisible="1"/>
+                
+                <button name="action_open_kuormat_wizard" string="Book Shipment" type="object" 
+                        class="btn-primary" 
+                        invisible="not wb_kuormat_is_kuormat or state != 'assigned'"/>
+                <button name="action_open_kuormat_wizard" string="Book Shipment" type="object" 
+                        class="btn-secondary" 
+                        invisible="not wb_kuormat_is_kuormat or state == 'assigned'"/>
+                
+                <button name="action_get_kuormat_labels" string="Get Labels" type="object" 
+                        invisible="not wb_kuormat_is_kuormat"/>
+            </xpath>
+            
+            <xpath expr="//notebook" position="inside">
+                <page name="wb_kuormat_shipments" string="Kuormat Shipments" invisible="not wb_kuormat_is_kuormat">
+                    <field name="wb_kuormat_shipment_ids" readonly="1">
+                        <list>
+                            <field name="carrier_name" string="Carrier"/>
+                            <field name="pickup_id" string="Pickup ID"/>
+                            <field name="shipment_id"/>
+                            <field name="earliest_date"/>
+                            <!-- Conditionally show price if setting is active on carrier -->
+                            <field name="price" column_invisible="not parent.wb_kuormat_show_price"/>
+                            <field name="package_ids" widget="many2many_tags" string="Packages"/>
+                        </list>
+                        <form string="Shipment Details">
+                            <sheet>
+                                <group>
+                                    <group>
+                                        <field name="carrier_name" string="Carrier"/>
+                                        <field name="pickup_id"/>
+                                        <field name="shipment_id"/>
+                                    </group>
+                                    <group>
+                                        <field name="earliest_date"/>
+                                        <field name="price"/>
+                                    </group>
+                                </group>
+                                <notebook>
+                                    <page string="Linked Packages">
+                                        <field name="package_ids" readonly="1">
+                                            <list>
+                                                <field name="pack_id" string="Package ID"/>
+                                                <field name="url" widget="url" text="Track Package"/>
+                                            </list>
+                                        </field>
+                                    </page>
+                                </notebook>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

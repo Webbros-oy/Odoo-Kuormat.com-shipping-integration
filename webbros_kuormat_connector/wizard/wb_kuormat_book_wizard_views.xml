@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_wb_kuormat_book_wizard_form" model="ir.ui.view">
+        <field name="name">wb.kuormat.book.wizard.form</field>
+        <field name="model">wb.kuormat.book.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Book Kuormat Shipment">
+                <group>
+                    <field name="picking_id" invisible="1"/>
+                    <field name="carrier_id" invisible="1"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                </group>
+                <notebook>
+                    <page string="Shipment Lines">
+                        <field name="line_ids">
+                            <list editable="bottom">
+                                <field name="wb_kuormat_shipment_type_id"/>
+                                <field name="amount"/>
+                                <field name="weight"/>
+                                <field name="length"/>
+                                <field name="width"/>
+                                <field name="height"/>
+                                <field name="stackable"/>
+                            </list>
+                        </field>
+                    </page>
+                </notebook>
+                <footer>
+                    <button string="Get Price" name="action_get_price" type="object" class="btn-secondary"/>
+                    <button string="Book Shipment" name="action_book_shipment" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

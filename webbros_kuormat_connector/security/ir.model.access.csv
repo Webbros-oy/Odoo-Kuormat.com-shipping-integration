@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wb_kuormat_shipment_types,wb.kuormat.shipment.types,model_wb_kuormat_shipment_types,base.group_user,1,1,1,1
+access_wb_kuormat_shipment,wb.kuormat.shipment,model_wb_kuormat_shipment,base.group_user,1,1,1,1
+access_wb_kuormat_book_wizard,wb.kuormat.book.wizard,model_wb_kuormat_book_wizard,base.group_user,1,1,1,1
+access_wb_kuormat_book_wizard_line,wb.kuormat.book.wizard.line,model_wb_kuormat_book_wizard_line,base.group_user,1,1,1,1
+access_wb_kuormat_package,wb.kuormat.package,model_wb_kuormat_package,base.group_user,1,1,1,1

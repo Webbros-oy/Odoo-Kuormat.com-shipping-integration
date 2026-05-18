@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="kuormat_type_parcel" model="wb.kuormat.shipment.types">
+            <field name="name">parcel</field>
+        </record>
+        
+        <record id="kuormat_type_tyre" model="wb.kuormat.shipment.types">
+            <field name="name">tyre</field>
+        </record>
+        
+        <record id="kuormat_type_eur_lava" model="wb.kuormat.shipment.types">
+            <field name="name">eur</field>
+            <field name="default_length">120</field>
+            <field name="default_width">80</field>
+            <field name="default_height">80</field>
+        </record>
+        
+        <record id="kuormat_type_fin_lava" model="wb.kuormat.shipment.types">
+            <field name="name">fin</field>
+            <field name="default_length">120</field>
+            <field name="default_width">100</field>
+            <field name="default_height">80</field>
+        </record>
+        
+        <record id="kuormat_type_teho_lava" model="wb.kuormat.shipment.types">
+            <field name="name">teho</field>
+            <field name="default_length">80</field>
+            <field name="default_width">60</field>
+            <field name="default_height">80</field>
+        </record>
+        
+        <record id="kuormat_type_quarter" model="wb.kuormat.shipment.types">
+            <field name="name">quarter</field>
+            <field name="default_length">60</field>
+            <field name="default_width">40</field>
+            <field name="default_height">80</field>
+        </record>
+        
+        <record id="kuormat_type_cage" model="wb.kuormat.shipment.types">
+            <field name="name">roller_cage</field>
+        </record>
+        
+        <record id="kuormat_type_special" model="wb.kuormat.shipment.types">
+            <field name="name">special</field>
+        </record>
+    </data>
+</odoo>
