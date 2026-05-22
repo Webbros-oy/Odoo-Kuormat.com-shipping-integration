@@ -1,0 +1,648 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* webbros_kuormat_connector
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-22 05:55+0000\n"
+"PO-Revision-Date: 2026-05-22 09:19+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_choose_delivery_carrier__wb_kuormat_number_of_items
+msgid "#-of-items"
+msgstr "Pakettien määrä"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_api_key
+msgid "API Key"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard_line__amount
+msgid "Amount"
+msgstr "Määrä"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_attended
+msgid "Attended"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.view_wb_kuormat_book_wizard_form
+msgid "Book Kuormat Shipment"
+msgstr "Varaa Kuormat kuljetus"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model,name:webbros_kuormat_connector.model_wb_kuormat_book_wizard
+msgid "Book Kuormat Shipment Wizard"
+msgstr "Varaa Kuormat Kuljetus Avustin"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model,name:webbros_kuormat_connector.model_wb_kuormat_book_wizard_line
+msgid "Book Kuormat Shipment Wizard Line"
+msgstr "Varaa Kuormat Kuljetus Avustin Rivi"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_book_pickup
+msgid "Book Pickup & Generate Labels"
+msgstr "Varaa Kuljetus & Hae Tarrat."
+
+#. module: webbros_kuormat_connector
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.view_wb_kuormat_book_wizard_form
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.wb_view_picking_form_inherit_kuormat
+msgid "Book Shipment"
+msgstr "Varaa Kuljetus"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_call_before_delivery
+msgid "Call before delivery"
+msgstr "Soitto ennen noutoa"
+
+#. module: webbros_kuormat_connector
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.view_wb_kuormat_book_wizard_form
+msgid "Cancel"
+msgstr "Peruuta"
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid ""
+"Cannot book Kuormat shipment. Please fix the following:\n"
+"\n"
+"• %s"
+msgstr ""
+"Kuljetuksenvaraus epäonnistui seuraavasta syystä:\n"
+"\n"
+"• %s"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard__carrier_id
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment__carrier_name
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.wb_view_picking_form_inherit_kuormat
+msgid "Carrier"
+msgstr "Kuljetusyhtiö"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment__carrier_id
+msgid "Carrier Method"
+msgstr "Kuljetustapa"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_dangerous_goods
+msgid "Contains dangerous goods"
+msgstr "Sisältää vaarallisia aineita"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard__create_uid
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard_line__create_uid
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_package__create_uid
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment__create_uid
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment_types__create_uid
+msgid "Created by"
+msgstr "Tekijä"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard__create_date
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard_line__create_date
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_package__create_date
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment__create_date
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment_types__create_date
+msgid "Created on"
+msgstr "Luontipäivä"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard__currency_id
+msgid "Currency"
+msgstr "Valuutta"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_api_secret
+msgid "Customer ID"
+msgstr "Asiakas-ID"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_default_height
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment_types__default_height
+msgid "Default Height (cm)"
+msgstr "Oletuskorkeus (cm)"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_default_length
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment_types__default_length
+msgid "Default Length (cm)"
+msgstr "Oletuspituus (cm)"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_default_width
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment_types__default_width
+msgid "Default Width (cm)"
+msgstr "Oletuskorkeus (cm)"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model,name:webbros_kuormat_connector.model_choose_delivery_carrier
+msgid "Delivery Carrier Selection Wizard"
+msgstr "Toimituksen huolitsijan valinnan ohjattu toiminto"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields.selection,name:webbros_kuormat_connector.selection__delivery_carrier__delivery_type__wb_kuormat
+msgid "Delivery Kuormat"
+msgstr "Kuormat.com toimitus"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_choose_delivery_carrier__display_name
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__display_name
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_stock_picking__display_name
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard__display_name
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard_line__display_name
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_package__display_name
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment__display_name
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment_types__display_name
+msgid "Display Name"
+msgstr "Näyttönimi"
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment__earliest_date
+msgid "Earliest Date"
+msgstr "Aikaisin päivä"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard__price
+msgid "Estimated Price"
+msgstr "Arvioitu Hinta"
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/models/delivery_carrier.py:0
+msgid "Failed to cancel Kuormat shipment: %s"
+msgstr "Kuljetuksenvaraus epäonnistui: %s"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment__free_text
+msgid "Free Text (Note)"
+msgstr "Vapaa teksti"
+
+#. module: webbros_kuormat_connector
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.wb_view_picking_form_inherit_kuormat
+msgid "Get Labels"
+msgstr "Hae Tarrat"
+
+#. module: webbros_kuormat_connector
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.view_wb_kuormat_book_wizard_form
+msgid "Get Price"
+msgstr "Hae Hinta"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard_line__height
+msgid "Height (cm)"
+msgstr "Korkeus (cm)"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_choose_delivery_carrier__id
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__id
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_stock_picking__id
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard__id
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard_line__id
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_package__id
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment__id
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment_types__id
+msgid "ID"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,help:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_book_pickup
+msgid ""
+"If enabled, automatically books a PostNord pickup and generates labels on "
+"shipment creation."
+msgstr ""
+"Jos käytössä, varataan automaattisesti PostNord nouto ja tulostetaan "
+"tarrat kuljetuksen varauksessa."
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid "Kuormat API Error [%s]: %s"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid "Kuormat API Error: %s"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#: model:ir.model,name:webbros_kuormat_connector.model_wb_kuormat_shipment
+msgid "Kuormat Actual Shipment"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid "Kuormat Booking Error: %s"
+msgstr "Kuormat Varaus-virhe: %s"
+
+#. module: webbros_kuormat_connector
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.wb_view_delivery_carrier_form_inherit_kuormat
+msgid "Kuormat Configuration"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/models/delivery_carrier.py:0
+msgid "Kuormat Labels Error: %s"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/models/delivery_carrier.py:0
+msgid ""
+"Kuormat Pricing Error:\n"
+"%s"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/models/delivery_carrier.py:0
+msgid "Kuormat Pricing Error: %s"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.wb_view_delivery_carrier_form_inherit_kuormat
+msgid "Kuormat Settings Defaults"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment__shipment_id
+msgid "Kuormat Shipment ID"
+msgstr "Kuormat Kuljetus-ID"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model,name:webbros_kuormat_connector.model_wb_kuormat_package
+msgid "Kuormat Shipment Package"
+msgstr "Kuormat Kuljetus Paketti"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model,name:webbros_kuormat_connector.model_wb_kuormat_shipment_types
+msgid "Kuormat Shipment Types"
+msgstr "Kuormat Kuljetus Tyypit"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_stock_picking__wb_kuormat_shipment_ids
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.wb_view_picking_form_inherit_kuormat
+msgid "Kuormat Shipments"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_test_mode
+msgid "Kuormat Test Mode"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/models/delivery_carrier.py:0
+msgid "Kuormat label available at:"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/models/delivery_carrier.py:0
+msgid "Kuormat labels attached."
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid "Kuormat shipments booked successfully."
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/models/delivery_carrier.py:0
+msgid "Kuormat shipments have no valid Shipment IDs. Cannot fetch labels."
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.wb_view_delivery_carrier_form_inherit_kuormat
+msgid "Kuormat.com Credentials"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/models/delivery_carrier.py:0
+msgid ""
+"Kuormat: Labels fetched but could not extract PDF. Please check API "
+"response."
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard__write_uid
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard_line__write_uid
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_package__write_uid
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment__write_uid
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment_types__write_uid
+msgid "Last Updated by"
+msgstr "Edellinen päivittäjä"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard__write_date
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard_line__write_date
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_package__write_date
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment__write_date
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment_types__write_date
+msgid "Last Updated on"
+msgstr "Edellinen päivitys"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard_line__length
+msgid "Length (cm)"
+msgstr "Pituus (cm)"
+
+#. module: webbros_kuormat_connector
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.wb_view_picking_form_inherit_kuormat
+msgid "Linked Packages"
+msgstr "Liittyvät Paketit"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment_types__name
+msgid "Name"
+msgstr "Nimi"
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/models/delivery_carrier.py:0
+msgid ""
+"No Kuormat shipments found for this transfer. Please book a shipment first."
+msgstr "Tälle siirrolle ei löydy Kuormat kuljetuksia. Varaa kuljetus ensin."
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid "No Sale Order linked to this transfer. Cannot fetch price."
+msgstr "Tähän kuljetukseen ei liity myynti. Hinnanhaku ei mahdollinen."
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_package__pack_id
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.wb_view_picking_form_inherit_kuormat
+msgid "Package ID"
+msgstr "Pakkaus ID"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment__package_ids
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.wb_view_picking_form_inherit_kuormat
+msgid "Packages"
+msgstr "Pakkaukset"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_partner_id
+msgid "Partner ID"
+msgstr "Kumppani ID"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,help:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_partner_id
+msgid "Partner Reference ID given by Kuormat"
+msgstr "Kumppani-viite Kuormat.com:ista"
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment__pickup_id
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.wb_view_picking_form_inherit_kuormat
+msgid "Pickup ID"
+msgstr "Nouto ID"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment__price
+msgid "Price"
+msgstr "Kustannus"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__delivery_type
+msgid "Provider"
+msgstr "Palveluntarjoaja"
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid ""
+"Receiver country '%s' is not supported by Kuormat. Supported countries: %s"
+msgstr ""
+"Kohdemaa  ’%s’ ei ole tuettu Kuormat.com:issa. Mahdolliset maat ovat: %s"
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid "Receiver: City is missing on the delivery address."
+msgstr "Kohde: Kaupunki puuttuu."
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid "Receiver: Country is not set on the delivery address."
+msgstr "Kohde: Maa puuttuu."
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid "Receiver: Email is missing on the delivery address."
+msgstr "Kohde: Sähköposti puuttuu."
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid "Receiver: Name is missing on the delivery address."
+msgstr "Kohde: Nimi puuttuu."
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid "Receiver: Phone number is missing on the delivery address."
+msgstr "Kohde: Puhelinnumero puuttuu."
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid "Receiver: Postal code is missing on the delivery address."
+msgstr "Kohde: postinumero puuttuu."
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid "Receiver: Street address is missing on the delivery address."
+msgstr "Kohde: Katuosoite puuttuu."
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid ""
+"Sender country '%s' is not supported by Kuormat. Please set a supported "
+"European country on your company or warehouse address."
+msgstr ""
+"Lähettäjä: maa ’%s’ ei ole tuettu Kuormat.com:issa. Mahdolliset maat ovat: "
+"%s."
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid ""
+"Sender: City is missing. Please update the warehouse or company address."
+msgstr "Lähettäjä: Kaupunki puuttuu osoitteesta."
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid ""
+"Sender: Company name is missing. Please configure it in Settings > "
+"Companies."
+msgstr "Lähettäjä: Nimi puuttuu."
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid ""
+"Sender: Country is not set. Please update the warehouse or company address."
+msgstr "Lähettäjä: Maa ylläpitämättä."
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid ""
+"Sender: Either a phone number or email address is required. Please update "
+"the company settings."
+msgstr "Lähettäjä: Joko puhelinnumero tai sähköposti vaaditaan."
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid ""
+"Sender: Postal code is missing. Please update the warehouse or company "
+"address."
+msgstr "Lähettäjä: Postinumero ylläpitämättä."
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid ""
+"Sender: Street address is missing. Please update the warehouse or company "
+"address."
+msgstr "Lähettäjä: Katuosoite puuttuu."
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_package__shipment_id
+msgid "Shipment"
+msgstr "Kuljetus"
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/models/delivery_carrier.py:0
+msgid "Shipment %s cancelled with Kuormat"
+msgstr "Kuljetus %s peruutettu"
+
+#. module: webbros_kuormat_connector
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.wb_view_picking_form_inherit_kuormat
+msgid "Shipment Details"
+msgstr "Kuljetuksen Tiedot"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard__line_ids
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.view_wb_kuormat_book_wizard_form
+msgid "Shipment Lines"
+msgstr "Kuljetusrivit"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_default_shipment_type_id
+msgid "Shipment Type"
+msgstr "Kuljetustyyppi"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model,name:webbros_kuormat_connector.model_delivery_carrier
+msgid "Shipping Methods"
+msgstr "Toimitustavat"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_show_price_in_delivery
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_stock_picking__wb_kuormat_show_price
+msgid "Show Price in Delivery Document"
+msgstr "Näytä hinta Toimituksella"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_signature_assurance
+msgid "Signature assurance"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_stackable
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard_line__stackable
+msgid "Stackable"
+msgstr "Pinottavissa"
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid "Track"
+msgstr "Seuraa"
+
+#. module: webbros_kuormat_connector
+#: model_terms:ir.ui.view,arch_db:webbros_kuormat_connector.wb_view_picking_form_inherit_kuormat
+msgid "Track Package"
+msgstr "Seuraa pakettia"
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+msgid "Tracking"
+msgstr "Seuranta"
+
+#. module: webbros_kuormat_connector
+#. odoo-python
+#: code:addons/webbros_kuormat_connector/wizard/wb_kuormat_book_wizard.py:0
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_package__url
+msgid "Tracking URL"
+msgstr "Seuranta-linkki"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model,name:webbros_kuormat_connector.model_stock_picking
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard__picking_id
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_shipment__picking_id
+msgid "Transfer"
+msgstr "Siirto"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard_line__wb_kuormat_shipment_type_id
+msgid "Type"
+msgstr "Tyyppi"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_delivery_carrier__wb_kuormat_update_sale_price
+msgid "Update Sale Price from Shipment"
+msgstr "Päivitä Myyntihinta Kuljetukselta"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_stock_picking__wb_kuormat_is_kuormat
+msgid "Wb Kuormat Is Kuormat"
+msgstr ""
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard_line__weight
+msgid "Weight (kg)"
+msgstr "Paino (kg)"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard_line__width
+msgid "Width (cm)"
+msgstr "Leveys (c)"
+
+#. module: webbros_kuormat_connector
+#: model:ir.model.fields,field_description:webbros_kuormat_connector.field_wb_kuormat_book_wizard_line__wizard_id
+msgid "Wizard"
+msgstr "Avustin"
