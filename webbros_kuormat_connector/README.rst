@@ -129,7 +129,7 @@ sekä tuki ja ongelmanratkaisu projektin aikana ja sen jälkeen.
 Lisenssi
 ========
 
-GPL-3
+LGPL-3
 
 -----------------------
 🇬🇧 In English
@@ -235,4 +235,4 @@ helping with reporting, training and providing support and problem solving.
 License
 =======
 
-GPL-3
+LGPL-3
