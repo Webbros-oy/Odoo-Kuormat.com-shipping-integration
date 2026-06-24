@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Webbros Kuormat.com shipment integration',
-    'version': '19.0.1.0.1',
+    'version': '19.0.1.0.2',
     'category': 'Inventory/Delivery',
     'summary': 'Kuormat.com shipment booking integration',
     'author':  'Webbros',
