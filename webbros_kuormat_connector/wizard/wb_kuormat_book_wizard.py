@@ -7,16 +7,20 @@ _logger = logging.getLogger(__name__)
 
 class WbKuormatBookWizard(models.TransientModel):
     """
-    Wizard for booking a Kuormat shipment from a stock picking.
+    Wizard for booking a Kuormat.com shipment from a stock picking.
     Allows adjusting default shipment parameters (weights, dimensions)
     and fetching estimated prices before confirming the booking.
     """
     _name = 'wb.kuormat.book.wizard'
-    _description = 'Book Kuormat Shipment Wizard'
+    _description = 'Book Kuormat.com Shipment Wizard'
 
     picking_id = fields.Many2one('stock.picking', string='Transfer', required=True)
     carrier_id = fields.Many2one('delivery.carrier', string='Carrier', required=True)
     price = fields.Float('Estimated Price', readonly=True)
+    wb_kuormat_carrier = fields.Selection([
+        ('postnord', 'PostNord'),
+        ('dhl', 'DHL')
+    ], string='Transport Carrier', required=True, default='postnord')
     line_ids = fields.One2many('wb.kuormat.book.wizard.line', 'wizard_id', string='Shipment Lines')
     currency_id = fields.Many2one(related='picking_id.company_id.currency_id')
 
@@ -29,10 +33,18 @@ class WbKuormatBookWizard(models.TransientModel):
         if res.get('picking_id') and res.get('carrier_id'):
             picking = self.env['stock.picking'].browse(res['picking_id'])
             carrier = self.env['delivery.carrier'].browse(res['carrier_id'])
-            
+
             # Simple mode: 1 line prefilled from carrier defaults
             shipment_type = carrier.wb_kuormat_default_shipment_type_id
-            
+
+            order = picking._wb_kuormat_get_sale_order()
+            if order and order.wb_kuormat_carrier:
+                res['wb_kuormat_carrier'] = order.wb_kuormat_carrier
+            elif getattr(carrier, 'wb_kuormat_fetch_postnord', False) and not getattr(carrier, 'wb_kuormat_fetch_dhl', False):
+                res['wb_kuormat_carrier'] = 'postnord'
+            elif getattr(carrier, 'wb_kuormat_fetch_dhl', False) and not getattr(carrier, 'wb_kuormat_fetch_postnord', False):
+                res['wb_kuormat_carrier'] = 'dhl'
+
             lines = [(0, 0, {
                 'wb_kuormat_shipment_type_id': shipment_type.id if shipment_type else False,
                 'weight': picking.shipping_weight or 1.0,
@@ -54,34 +66,29 @@ class WbKuormatBookWizard(models.TransientModel):
 
     def action_get_price(self):
         """
-        Builds the validation payload and requests an estimated price from the Kuormat API.
+        Builds the validation payload and requests an estimated price from the Kuormat.com API.
         Reloads the wizard with the calculated price for user confirmation.
         """
         self.ensure_one()
         allowed_countries = self.KUORMAT_ALLOWED_COUNTRIES
-        allowed_countries = self.KUORMAT_ALLOWED_COUNTRIES
-        order = self.picking_id.sale_id
-        if not order and self.picking_id.group_id and hasattr(self.env['sale.order'], 'search'):
-            order = self.env['sale.order'].sudo().search([('procurement_group_id', '=', self.picking_id.group_id.id)], limit=1)
-            
+        picking = self.picking_id
+        picking._wb_kuormat_propagate_carrier()
+        order = picking._wb_kuormat_get_sale_order()
         if not order:
             raise UserError(_("No Sale Order linked to this transfer. Cannot fetch price."))
 
-        sender_partner = self.env.company.partner_id
-        if self.picking_id.location_id.usage == 'supplier' and hasattr(self.picking_id, 'purchase_id') and self.picking_id.purchase_id:
-            sender_partner = self.picking_id.purchase_id.partner_id
-        elif order and order.warehouse_id.partner_id:
-            sender_partner = order.warehouse_id.partner_id
+        sender_partner = picking._wb_kuormat_get_sender_partner(order)
+        receiver_partner = picking._wb_kuormat_get_receiver_partner(order)
 
         sender_zip = sender_partner.zip or self.env.company.zip or '00100'
         sender_cc = sender_partner.country_id.code or self.env.company.country_id.code
-        
+
         if sender_cc not in allowed_countries:
             sender_cc = 'FI'
             sender_zip = '00100'
 
-        recv_zip = self.picking_id.partner_id.zip or '33100'
-        recv_cc = self.picking_id.partner_id.country_id.code
+        recv_zip = receiver_partner.zip or '33100'
+        recv_cc = receiver_partner.country_id.code
 
         if recv_cc not in allowed_countries:
             recv_cc = 'FI'
@@ -89,7 +96,7 @@ class WbKuormatBookWizard(models.TransientModel):
 
         pieces = []
         for line in self.line_ids:
-            for _ in range(line.amount):
+            for i in range(line.amount):
                 pieces.append({
                     'type': line.wb_kuormat_shipment_type_id.name.lower() if line.wb_kuormat_shipment_type_id else 'parcel',
                     'amount': 1,
@@ -98,10 +105,12 @@ class WbKuormatBookWizard(models.TransientModel):
                     'width': line.width,
                     'height': line.height,
                     'stackable': line.stackable,
+                    'description': picking.name or 'Goods',
                 })
 
         payload = {
             'shipments': [{
+                'carriers': [self.wb_kuormat_carrier],
                 'sender': {
                     'postalCode': sender_zip,
                     'countryCode': sender_cc if sender_cc in allowed_countries else 'FI',
@@ -109,7 +118,7 @@ class WbKuormatBookWizard(models.TransientModel):
                 'receiver': {
                     'postalCode': recv_zip,
                     'countryCode': recv_cc if recv_cc in allowed_countries else 'FI',
-                    'type': 'company' if self.picking_id.partner_id.is_company else 'person',
+                    'type': 'company' if receiver_partner.is_company else 'person',
                 },
                 'deliveryToPickupPoint': False,
                 'pieces': pieces
@@ -128,8 +137,8 @@ class WbKuormatBookWizard(models.TransientModel):
                         err_msg += "\n\nDetails:\n" + details
             else:
                 err_msg = str(err_data)
-            raise UserError(_("Kuormat API Error: %s") % err_msg)
-        
+            raise UserError(_("Kuormat.com API Error: %s") % err_msg)
+
         try:
             shipment_res = res.get('shipments', [{}])[0]
             if 'prices' in shipment_res and shipment_res['prices']:
@@ -139,13 +148,13 @@ class WbKuormatBookWizard(models.TransientModel):
                 price = shipment_res.get('totalPrice', 0.0)
         except (IndexError, KeyError, TypeError, ValueError):
             price = 0.0
-            
+
         if price > 0.0:
             total_pieces = sum(line.amount for line in self.line_ids) or 1
             price = price * (1.0 + (self.carrier_id.margin / 100.0)) + (self.carrier_id.fixed_margin * total_pieces)
-            
+
         self.price = price
-        
+
         return {
             'type': 'ir.actions.act_window',
             'res_model': 'wb.kuormat.book.wizard',
@@ -156,21 +165,18 @@ class WbKuormatBookWizard(models.TransientModel):
 
     def action_book_shipment(self):
         """
-        Validates sender/receiver requirements and generates actual Kuormat shipments.
+        Validates sender/receiver requirements and generates actual Kuormat.com shipments.
         Writes the returned tracking codes and pricing data back to Odoo models.
         """
         self.ensure_one()
         allowed_countries = self.KUORMAT_ALLOWED_COUNTRIES
-        order = self.picking_id.sale_id
-        if not order and self.picking_id.group_id and hasattr(self.env['sale.order'], 'search'):
-            order = self.env['sale.order'].sudo().search([('procurement_group_id', '=', self.picking_id.group_id.id)], limit=1)
+        picking = self.picking_id
+        picking._wb_kuormat_propagate_carrier()
+        order = picking._wb_kuormat_get_sale_order()
 
         company = self.env.company
-        sender_partner = company.partner_id
-        if self.picking_id.location_id.usage == 'supplier' and hasattr(self.picking_id, 'purchase_id') and self.picking_id.purchase_id:
-            sender_partner = self.picking_id.purchase_id.partner_id
-        elif order and order.warehouse_id.partner_id:
-            sender_partner = order.warehouse_id.partner_id
+        sender_partner = picking._wb_kuormat_get_sender_partner(order)
+        receiver = picking._wb_kuormat_get_receiver_partner(order)
 
         # --- Sender Validation ---
         errors = []
@@ -193,12 +199,11 @@ class WbKuormatBookWizard(models.TransientModel):
         if not sender_cc:
             errors.append(_("Sender: Country is not set. Please update the warehouse or company address."))
         elif sender_cc not in allowed_countries:
-            errors.append(_("Sender country '%s' is not supported by Kuormat. Please set a supported European country on your company or warehouse address.") % sender_cc)
+            errors.append(_("Sender country '%s' is not supported by Kuormat.Com. Please set a supported European country on your company or warehouse address.") % sender_cc)
         if not sender_phone and not sender_email:
             errors.append(_("Sender: Either a phone number or email address is required. Please update the company settings."))
 
         # --- Receiver Validation ---
-        receiver = self.picking_id.partner_id
         recv_zip = receiver.zip
         recv_cc = receiver.country_id.code
         recv_city = receiver.city
@@ -218,16 +223,17 @@ class WbKuormatBookWizard(models.TransientModel):
         if not recv_cc:
             errors.append(_("Receiver: Country is not set on the delivery address."))
         elif recv_cc not in allowed_countries:
-            errors.append(_("Receiver country '%s' is not supported by Kuormat. Supported countries: %s") % (recv_cc, ', '.join(allowed_countries)))
+            errors.append(_("Receiver country '%s' is not supported by Kuormat.Com. Supported countries: %s") % (recv_cc, ', '.join(allowed_countries)))
         if not recv_phone:
             errors.append(_("Receiver: Phone number is missing on the delivery address."))
         if not recv_email:
             errors.append(_("Receiver: Email is missing on the delivery address."))
 
         if errors:
-            raise UserError(_("Cannot book Kuormat shipment. Please fix the following:\n\n• %s") % "\n• ".join(errors))
+            raise UserError(_("Cannot book Kuormat.Com shipment. Please fix the following:\n\n• %s") % "\n• ".join(errors))
 
         pieces = []
+        earliest_date_str = picking.scheduled_date.strftime('%Y-%m-%d') if picking.scheduled_date else None
         for line in self.line_ids:
             for i in range(line.amount):
                 pieces.append({
@@ -238,12 +244,14 @@ class WbKuormatBookWizard(models.TransientModel):
                     'width': line.width,
                     'height': line.height,
                     'stackable': line.stackable,
+                    'description': picking.name or 'Goods',
                 })
 
         payload = {
-            'bookPostnordPickup': self.carrier_id.wb_kuormat_book_pickup,
+            'bookPostnordPickup': self.carrier_id.wb_kuormat_book_pickup if self.wb_kuormat_carrier == 'postnord' else False,
             'shipments': [{
-                'priceType': 'postnord',
+                'priceType': self.wb_kuormat_carrier,
+                'freeText': picking._wb_kuormat_get_shipment_freetext(order),
                 'sender': {
                     'company': sender_name,
                     'address': {
@@ -257,7 +265,7 @@ class WbKuormatBookWizard(models.TransientModel):
                 },
                 'receiver': {
                     'name': recv_name,
-                    'type': 'company' if self.picking_id.partner_id.is_company else 'person',
+                    'type': 'company' if receiver.is_company else 'person',
                     'address': {
                         'street': recv_street,
                         'postalCode': recv_zip,
@@ -267,6 +275,7 @@ class WbKuormatBookWizard(models.TransientModel):
                     'phone': recv_phone,
                     'email': recv_email or '',
                 },
+                'earliestPickupDate' : earliest_date_str,
                 'deliveryToPickupPoint': False,
                 'pieces': pieces
             }]
@@ -285,9 +294,9 @@ class WbKuormatBookWizard(models.TransientModel):
                         err_msg += "\n\nDetails:\n" + details
             else:
                 err_msg = str(err_data)
-            raise UserError(_("Kuormat Booking Error: %s") % err_msg)
+            raise UserError(_("Kuormat.Com Booking Error: %s") % err_msg)
         if isinstance(api_res, dict) and api_res.get('code'):
-            raise UserError(_("Kuormat API Error [%s]: %s") % (api_res.get('code'), api_res.get('message', '')))
+            raise UserError(_("Kuormat.Com API Error [%s]: %s") % (api_res.get('code'), api_res.get('message', '')))
 
         shipments_created = api_res.get('shipments', []) if isinstance(api_res, dict) else []
         first_tracking = False
@@ -327,22 +336,29 @@ class WbKuormatBookWizard(models.TransientModel):
             total_price += ship_price
             carrier_data = ship.get('carrierData') or {}
             carrier_name = carrier_data.get('name') or False
-            pickup_id = ship.get('pickupId') or carrier_data.get('pickupId')
+            pickup_id = ship.get('pickupId') or carrier_data.get('pickupId') or carrier_data.get('transportId')
             earliest_date = ship.get('earliestPickupDate') or ship.get('earliestDate') or carrier_data.get('earliestPickupDate') or carrier_data.get('earliestDate')
-            
+
             # --- Extract package tracking URLs ---
+            carrier_tracking_url = carrier_data.get('transportTrackingUrl') or carrier_data.get('trackingUrl') or carrier_data.get('tracking_url') or carrier_data.get('tracking-URL') or carrier_data.get('tracking-url')
             package_lines = []
             items_data = ship.get('items', []) or carrier_data.get('items', [])
             if isinstance(items_data, list):
                 for item in items_data:
                     if isinstance(item, dict):
                         p_id = item.get('id')
-                        p_url = item.get('trackingUrl') or item.get('tracking_url')
+                        p_url = item.get('trackingUrl') or item.get('tracking_url') or carrier_tracking_url
                         if p_id or p_url:
                             package_lines.append((0, 0, {
                                 'pack_id': p_id,
                                 'url': p_url
                             }))
+
+            if not package_lines and carrier_tracking_url:
+                package_lines.append((0, 0, {
+                    'pack_id': tracking_number,
+                    'url': carrier_tracking_url
+                }))
 
             new_shipment_recs |= self.env['wb.kuormat.shipment'].create({
                 'picking_id': self.picking_id.id,
@@ -357,9 +373,10 @@ class WbKuormatBookWizard(models.TransientModel):
 
         # --- Set Odoo standard fields ---
         if first_tracking:
-            self.picking_id.write({
-                'carrier_tracking_ref': first_tracking,
-            })
+            write_vals = {'carrier_tracking_ref': first_tracking}
+            if not self.picking_id.carrier_id:
+                write_vals['carrier_id'] = self.carrier_id.id
+            self.picking_id.write(write_vals)
 
         # --- Update Sale Price if configured ---
         if self.carrier_id.wb_kuormat_update_sale_price and order and total_price > 0:
@@ -371,14 +388,14 @@ class WbKuormatBookWizard(models.TransientModel):
             else:
                 _logger.warning("wb_kuormat: No delivery line found on SO %s to update price.", order.name)
 
-        msg_parts = [Markup("<b>{}</b><br/>").format(_("Kuormat shipments booked successfully."))]
+        msg_parts = [Markup("<b>{}</b><br/>").format(_("Kuormat.Com shipments booked successfully."))]
         for ship_rec in new_shipment_recs:
-            msg_parts.append(Markup("<b>{}:</b> {}").format(_("Tracking"), ship_rec.shipment_id or 'N/A'))
+            msg_parts.append(Markup("<b>{}:</b> {}").format(_("Shipment ID"), ship_rec.shipment_id or 'N/A'))
             if ship_rec.pickup_id:
                 msg_parts.append(Markup("<b>{}:</b> {}").format(_("Pickup ID"), ship_rec.pickup_id))
             if ship_rec.earliest_date:
                 msg_parts.append(Markup("<b>{}:</b> {}").format(_("Earliest Date"), ship_rec.earliest_date))
-            
+
             if ship_rec.package_ids:
                 urls = []
                 for pkg in ship_rec.package_ids:
@@ -393,11 +410,11 @@ class WbKuormatBookWizard(models.TransientModel):
 
 class WbKuormatBookWizardLine(models.TransientModel):
     """
-    Represents an individual package/piece within the Kuormat booking wizard.
+    Represents an individual package/piece within the Kuormat.com booking wizard.
     Used to define dimensions and weights of individual boxes before shipping.
     """
     _name = 'wb.kuormat.book.wizard.line'
-    _description = 'Book Kuormat Shipment Wizard Line'
+    _description = 'Book Kuormat.com Shipment Wizard Line'
 
     wizard_id = fields.Many2one('wb.kuormat.book.wizard', required=True, ondelete='cascade')
     wb_kuormat_shipment_type_id = fields.Many2one('wb.kuormat.shipment.types', string='Type')

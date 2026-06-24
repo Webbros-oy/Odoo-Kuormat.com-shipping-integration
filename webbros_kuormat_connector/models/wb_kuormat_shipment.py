@@ -6,16 +6,16 @@ class WbKuormatShipment(models.Model):
     Stores tracking IDs, pricing points, and time data retrieved from the Kuormat API.
     """
     _name = 'wb.kuormat.shipment'
-    _description = 'Kuormat Actual Shipment'
+    _description = 'Kuormat.com Actual Shipment'
 
     picking_id = fields.Many2one('stock.picking', string='Transfer', required=True, ondelete='cascade')
-    carrier_id = fields.Many2one('delivery.carrier', string='Carrier Method')
+    carrier_id = fields.Many2one('delivery.carrier', string='Shipmnent carrier')
     carrier_name = fields.Char(string='Carrier')
     pickup_id = fields.Char(string='Pickup ID')
-    shipment_id = fields.Char(string='Kuormat Shipment ID')
+    shipment_id = fields.Char(string='Shipment ID')
     price = fields.Float(string='Price')
-    earliest_date = fields.Datetime(string='Earliest Date')
-    free_text = fields.Text(string='Free Text (Note)')
+    earliest_date = fields.Date(string='Earliest date')
+    free_text = fields.Text(string='Free text (Note)')
     package_ids = fields.One2many('wb.kuormat.package', 'shipment_id', string='Packages')
 
 
@@ -24,7 +24,7 @@ class WbKuormatPackage(models.Model):
     Linked packages for Kuormat Shipments containing individual tracking URLs.
     """
     _name = 'wb.kuormat.package'
-    _description = 'Kuormat Shipment Package'
+    _description = 'Kuormat.com Shipment Package'
     _rec_name = 'pack_id'
 
     shipment_id = fields.Many2one('wb.kuormat.shipment', string='Shipment', required=True, ondelete='cascade')

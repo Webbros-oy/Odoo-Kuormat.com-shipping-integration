@@ -21,15 +21,15 @@
             </xpath>
             
             <xpath expr="//notebook" position="inside">
-                <page name="wb_kuormat_shipments" string="Kuormat Shipments" invisible="not wb_kuormat_is_kuormat">
+                <page name="wb_kuormat_shipments" string="Kuormat.Com Shipments" invisible="not wb_kuormat_is_kuormat">
                     <field name="wb_kuormat_shipment_ids" readonly="1">
                         <list>
                             <field name="carrier_name" string="Carrier"/>
                             <field name="pickup_id" string="Pickup ID"/>
-                            <field name="shipment_id"/>
+                            <field name="shipment_id" string="Shipment ID"/>
                             <field name="earliest_date"/>
                             <!-- Conditionally show price if setting is active on carrier -->
-                            <field name="price" column_invisible="not parent.wb_kuormat_show_price"/>
+                            <field name="price" string="Cost" column_invisible="not parent.wb_kuormat_show_price"/>
                             <field name="package_ids" widget="many2many_tags" string="Packages"/>
                         </list>
                         <form string="Shipment Details">

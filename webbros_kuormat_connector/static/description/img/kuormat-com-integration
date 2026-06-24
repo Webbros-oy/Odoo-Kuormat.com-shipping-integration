@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="fi-FI" data-website-id="1" data-main-object="website.page(36,)" dir="ltr">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="generator" content="Odoo"/>
+        <meta name="description" content="Webbrosin kehittämä integraatio Odoo-järjestelmän ja Kuormat.com kuljetustenhallintajärjestelmän välille"/>
+        <meta name="keywords" content="kuljetukset,logistiikka,Odoo integraatio"/>
+            
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Webbros Kuormat.com integraatio"/>
+        <meta property="og:site_name" content="webbros"/>
+        <meta property="og:url" content="https://www.webbros.fi/kuormat-com-integration"/>
+        <meta property="og:image" content="https://www.webbros.fi/web/image/website/1/logo?unique=e535d99"/>
+        <meta property="og:description" content="Webbrosin kehittämä integraatio Odoo-järjestelmän ja Kuormat.com kuljetustenhallintajärjestelmän välille"/>
+            
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content="Webbros Kuormat.com integraatio"/>
+        <meta name="twitter:image" content="https://www.webbros.fi/web/image/website/1/logo?unique=e535d99"/>
+        <meta name="twitter:description" content="Webbrosin kehittämä integraatio Odoo-järjestelmän ja Kuormat.com kuljetustenhallintajärjestelmän välille"/>
+        
+        <link rel="canonical" href="https://www.webbros.fi/kuormat-com-integration"/>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""/>
+        <title>Webbros Kuormat.com integraatio</title>
+        <link type="image/x-icon" rel="shortcut icon" href="/web/image/website/1/favicon?unique=e535d99"/>
+        <link rel="preload" href="/web/static/src/libs/fontawesome/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" crossorigin=""/>
+        <link type="text/css" rel="stylesheet" href="/web/assets/1/f3def20/web.assets_frontend.min.css"/>
+        <script id="web.layout.odooscript" type="text/javascript">
+            var odoo = {
+                csrf_token: "f868a40993ef3873dba01f93fa5d4c552b375f8co1811582727",
+                debug: "",
+            };
+        </script>
+        <script type="text/javascript">
+            odoo.__session_info__ = {"is_admin": false, "is_system": false, "is_public": true, "is_internal_user": false, "is_website_user": true, "uid": null, "registry_hash": "1a7e916ab1da01374a1914db29191de741e7bbaacbf40be21f4c62e2a6fa80d4", "is_frontend": true, "profile_session": null, "profile_collectors": null, "profile_params": null, "show_effect": true, "currencies": {"1": {"name": "EUR", "symbol": "\u20ac", "position": "after", "digits": [69, 2]}, "2": {"name": "USD", "symbol": "$", "position": "before", "digits": [69, 2]}}, "quick_login": true, "bundle_params": {"lang": "fi_FI", "website_id": 1}, "test_mode": false, "websocket_worker_version": "19.0-2", "translationURL": "/website/translations", "geoip_country_code": "FI", "geoip_phone_code": 358, "lang_url_code": "fi", "add_to_cart_action": "stay"};
+            if (!/(^|;\s)tz=/.test(document.cookie)) {
+                const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                document.cookie = `tz=${userTZ}; path=/`;
+            }
+        </script>
+        <script type="text/javascript" defer="defer" src="/web/assets/1/67afd9f/web.assets_frontend_minimal.min.js" onerror="__odooAssetError=1"></script>
+        <script type="text/javascript" data-src="/web/assets/1/4da5b6f/web.assets_frontend_lazy.min.js" onerror="__odooAssetError=1"></script>
+        
+            <script id="tracking_code" async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4FSC44WZ0W"></script>
+            <script id="tracking_code_config">
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied',
+                });
+                gtag('js', new Date());
+                gtag('config', 'G-4FSC44WZ0W');
+                function allConsentsGranted() {
+                    gtag('consent', 'update', {
+                        'ad_storage': 'granted',
+                        'ad_user_data': 'granted',
+                        'ad_personalization': 'granted',
+                        'analytics_storage': 'granted',
+                    });
+                }
+                    allConsentsGranted();
+            </script>
+            
+            <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Webbros oy",
+    "logo": "https://www.webbros.fi/logo.png?company=1",
+    "url": "https://www.webbros.fi"
+}
+            </script>
+
+             
+        <meta name="google-site-verification" content="AUt4CE0ny-b-yhx9oolZ7P0XE21vYr-Sz051ijfnfxM" />
+    </head>
+    <body>
+        
+
+
+
+        <div id="wrapwrap" class="    o_footer_effect_enable">
+            <a class="o_skip_to_content btn btn-primary rounded-0 visually-hidden-focusable position-absolute start-0" href="#wrap">Siirry sisältöön</a>
+                <header id="top" data-anchor="true" data-name="Header" data-extra-items-toggle-aria-label="Lisäkohteiden painike" class="   o_header_standard" style=" ">
+    <nav data-name="Navbar" aria-label="Main" class="navbar navbar-expand-lg navbar-light o_colored_level o_cc d-none d-lg-block shadow-sm ">
+        
+
+            <div id="o_main_nav" class="o_main_nav container">
+                
+    <a data-name="Navbar Logo" href="/" class="navbar-brand logo me-4">
+            
+            <span role="img" aria-label="Logo of webbros" title="webbros"><img src="/web/image/website/1/logo/webbros?unique=e535d99" class="img img-fluid" width="95" height="40" alt="webbros" loading="lazy"/></span>
+        </a>
+    
+                
+    <ul role="menu" id="top_menu" class="nav navbar-nav top_menu o_menu_loading  me-auto ">
+        
+                    
+
+
+    <li role="presentation" class="nav-item ">
+        <a role="menuitem" href="/blog/erp-5" class="nav-link ">
+            <span>Blogi</span>
+        </a>
+    </li>
+
+    <li role="presentation" class="nav-item ">
+        <a role="menuitem" href="/odoo" class="nav-link ">
+            <span>Odoo</span>
+        </a>
+    </li>
+
+    <li role="presentation" class="nav-item ">
+        <a role="menuitem" href="/about-us" class="nav-link ">
+            <span>Meistä</span>
+        </a>
+    </li>
+
+    <li role="presentation" class="nav-item ">
+        <a role="menuitem" href="/contactus" class="nav-link ">
+            <span>Ota yhteyttä</span>
+        </a>
+    </li>
+
+    <li role="presentation" class="nav-item ">
+        <a role="menuitem" href="/helpdesk/customer-care-1" class="nav-link ">
+            <span>Help</span>
+        </a>
+    </li>
+                
+    </ul>
+                
+                <ul class="navbar-nav align-items-center gap-2 flex-shrink-0 justify-content-end ps-3">
+                    
+        <li class=" divider d-none"></li> 
+        <li class="o_wsale_my_cart d-none ">
+            <a href="/shop/cart" aria-label="verkkokaupan ostoskori" class="o_navlink_background btn position-relative rounded-circle p-1 text-center text-reset">
+                <div class="">
+                    <i class="fa fa-shopping-cart fa-stack"></i>
+                    <sup class="my_cart_quantity badge bg-primary position-absolute top-0 end-0 mt-n1 me-n1 rounded-pill d-none">0</sup>
+                </div>
+            </a>
+        </li>
+        <li class="">
+                <div class="modal fade css_editable_mode_hidden" id="o_search_modal" aria-hidden="true" tabindex="-1">
+                    <div class="modal-dialog modal-lg pt-5">
+                        <div class="modal-content mt-5">
+    <form method="get" class="o_searchbar_form s_searchbar_input " action="/website/search" data-snippet="s_searchbar_input">
+            <div role="search" class="input-group input-group-lg">
+        <input type="search" name="search" class="search-query form-control oe_search_box border border-end-0 p-3 border-0 bg-light" placeholder="Hae..." data-search-type="all" data-limit="5" data-display-image="true" data-display-description="true" data-display-extra-link="true" data-display-detail="true" data-order-by="name asc"/>
+        <button type="submit" aria-label="Hae" title="Hae" class="btn oe_search_button border border-start-0 px-4 bg-o-color-4">
+            <i class="oi oi-search"></i>
+        </button>
+    </div>
+
+            <input name="order" type="hidden" class="o_search_order_by oe_unremovable" value="name asc"/>
+            
+        </form>
+                        </div>
+                    </div>
+                </div>
+                <a data-bs-target="#o_search_modal" data-bs-toggle="modal" role="button" title="Hae" href="#" class="btn rounded-circle p-1 lh-1 o_navlink_background text-reset o_not_editable">
+                    <i class="oi oi-search fa-stack lh-lg"></i>
+                </a>
+        </li>
+                    
+                    
+                    
+        <li data-name="Language Selector" class="o_header_language_selector ">
+        <div class="js_language_selector  dropdown d-print-none">
+            <button type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="border-0 dropdown-toggle nav-link">
+  <img class="o_lang_flag" style="" src="?height=25" loading="lazy"/>
+                <span class=""> Suomi</span>
+            </button>
+            <div role="menu" class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item js_change_lang " role="menuitem" href="/en/kuormat-com-integration?height=25" data-url_code="en" title="English (US)">
+  <img class="o_lang_flag" style="" src="?height=25" loading="lazy"/>
+                        <span class="">English (US)</span>
+                    </a>
+                    <a class="dropdown-item js_change_lang active" role="menuitem" href="/kuormat-com-integration?height=25" data-url_code="fi" title=" Suomi">
+  <img class="o_lang_flag" style="" src="?height=25" loading="lazy"/>
+                        <span class=""> Suomi</span>
+                    </a>
+            </div>
+        </div>
+        </li>
+                    
+            <li class=" o_no_autohide_item">
+                <a href="/web/login" class="o_nav_link_btn nav-link border px-3">Kirjaudu sisään</a>
+            </li>
+                    
+                    
+        <div class="oe_structure oe_structure_solo ">
+            <section class="s_text_block o_colored_level oe_unremovable oe_unmovable" data-snippet="s_text_block" data-name="Text" style="background-image: none;">
+                <div class="container">
+                    <a href="/contactus" class="btn btn-primary btn_cta oe_unremovable btn_ca" data-bs-original-title="" title=""><span style="font-weight: normal;">Ota yhteyttä</span></a>
+                </div>
+            </section>
+        </div>
+                </ul>
+            </div>
+        
+    </nav>
+
+    <nav data-name="Navbar" aria-label="Mobile" class="navbar  navbar-light o_colored_level o_cc o_header_mobile d-block d-lg-none shadow-sm ">
+        
+
+        <div class="o_main_nav container flex-wrap justify-content-between">
+            <div class="d-flex flex-grow-1">
+                
+    <a data-name="Navbar Logo" href="/" class="navbar-brand logo ">
+            
+            <span role="img" aria-label="Logo of webbros" title="webbros"><img src="/web/image/website/1/logo/webbros?unique=e535d99" class="img img-fluid" width="95" height="40" alt="webbros" loading="lazy"/></span>
+        </a>
+    
+                <ul class="o_header_mobile_buttons_wrap navbar-nav d-flex flex-row align-items-center gap-2 mb-0 ms-auto">
+        <li class=" divider d-none"></li> 
+        <li class="o_wsale_my_cart d-none ">
+            <a href="/shop/cart" aria-label="verkkokaupan ostoskori" class="o_navlink_background_hover btn position-relative rounded-circle border-0 p-1 text-reset">
+                <div class="">
+                    <i class="fa fa-shopping-cart fa-stack"></i>
+                    <sup class="my_cart_quantity badge bg-primary position-absolute top-0 end-0 mt-n1 me-n1 rounded-pill d-none">0</sup>
+                </div>
+            </a>
+        </li></ul>
+            </div>
+            <button class="nav-link btn p-2 o_not_editable" type="button" data-bs-toggle="offcanvas" data-bs-target="#top_menu_collapse_mobile" aria-controls="top_menu_collapse_mobile" aria-expanded="false" aria-label="Kytke navigaatio päälle/pois">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="top_menu_collapse_mobile" class="offcanvas offcanvas-end o_navbar_mobile">
+                <div class="offcanvas-header justify-content-end o_not_editable">
+                    <button type="button" class="nav-link btn-close" data-bs-dismiss="offcanvas" aria-label="Sulje"></button>
+                </div>
+                <div class="offcanvas-body d-flex flex-column justify-content-between h-100 w-100 pt-0">
+                    <ul class="navbar-nav">
+                        
+        <li class="">
+    <form method="get" class="o_searchbar_form s_searchbar_input " action="/website/search" data-snippet="s_searchbar_input">
+            <div role="search" class="input-group mb-3">
+        <input type="search" name="search" class="search-query form-control oe_search_box rounded-start-pill text-bg-light ps-3 border-0 bg-light" placeholder="Hae..." data-search-type="all" data-limit="0" data-display-image="true" data-display-description="true" data-display-extra-link="true" data-display-detail="true" data-order-by="name asc"/>
+        <button type="submit" aria-label="Hae" title="Hae" class="btn oe_search_button rounded-end-pill bg-o-color-3 pe-3">
+            <i class="oi oi-search"></i>
+        </button>
+    </div>
+
+            <input name="order" type="hidden" class="o_search_order_by oe_unremovable" value="name asc"/>
+            
+        </form>
+        </li>
+                        
+                        <li>
+    <ul role="menu" class="nav navbar-nav top_menu  o_mega_menu_is_offcanvas mx-n3  ">
+        
+                                
+
+
+    <li role="presentation" class="nav-item border-top  px-0">
+        <a role="menuitem" href="/blog/erp-5" class="nav-link p-3 text-wrap ">
+            <span>Blogi</span>
+        </a>
+    </li>
+
+    <li role="presentation" class="nav-item border-top  px-0">
+        <a role="menuitem" href="/odoo" class="nav-link p-3 text-wrap ">
+            <span>Odoo</span>
+        </a>
+    </li>
+
+    <li role="presentation" class="nav-item border-top  px-0">
+        <a role="menuitem" href="/about-us" class="nav-link p-3 text-wrap ">
+            <span>Meistä</span>
+        </a>
+    </li>
+
+    <li role="presentation" class="nav-item border-top  px-0">
+        <a role="menuitem" href="/contactus" class="nav-link p-3 text-wrap ">
+            <span>Ota yhteyttä</span>
+        </a>
+    </li>
+
+    <li role="presentation" class="nav-item border-top border-bottom px-0">
+        <a role="menuitem" href="/helpdesk/customer-care-1" class="nav-link p-3 text-wrap ">
+            <span>Help</span>
+        </a>
+    </li>
+                            
+    </ul>
+                        </li>
+                        
+                        
+                    </ul>
+                    <ul class="navbar-nav gap-2 mt-3 w-100">
+                        
+        <li data-name="Language Selector" class="o_header_language_selector ">
+        <div class="js_language_selector dropup dropdown d-print-none">
+            <button type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="border-0 dropdown-toggle nav-link d-flex align-items-center w-100">
+  <img class="o_lang_flag" style="" src="?height=25" loading="lazy"/>
+                <span class="me-auto small"> Suomi</span>
+            </button>
+            <div role="menu" class="dropdown-menu w-100">
+                    <a class="dropdown-item js_change_lang " role="menuitem" href="/en/kuormat-com-integration?height=25" data-url_code="en" title="English (US)">
+  <img class="o_lang_flag" style="" src="?height=25" loading="lazy"/>
+                        <span class="me-auto small">English (US)</span>
+                    </a>
+                    <a class="dropdown-item js_change_lang active" role="menuitem" href="/kuormat-com-integration?height=25" data-url_code="fi" title=" Suomi">
+  <img class="o_lang_flag" style="" src="?height=25" loading="lazy"/>
+                        <span class="me-auto small"> Suomi</span>
+                    </a>
+            </div>
+        </div>
+        </li>
+                        
+            <li class=" o_no_autohide_item">
+                <a href="/web/login" class="nav-link o_nav_link_btn w-100 border text-center">Kirjaudu sisään</a>
+            </li>
+                        
+                        
+        <div class="oe_structure oe_structure_solo ">
+            <section class="s_text_block o_colored_level oe_unremovable oe_unmovable" data-snippet="s_text_block" data-name="Text" style="background-image: none;">
+                <div class="container">
+                    <a href="/contactus" class="btn btn-primary btn_cta oe_unremovable btn_ca w-100" data-bs-original-title="" title=""><span style="font-weight: normal;">Ota yhteyttä</span></a>
+                </div>
+            </section>
+        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+    </nav>
+    </header>
+                <main>
+                    
+        <div id="wrap" class="oe_structure oe_empty"><section class="s_picture pt64 pb64 o_colored_level oe_img_bg o_bg_img_center o_bg_img_origin_border_box" data-snippet="s_picture" data-name="Title - Image" data-attachment-id="6922" data-format-mimetype="image/webp" data-resize-width="1280" data-original-id="6922" data-original-src="/web/image/6922-6fd0145b/Webbros_hero.png" data-mimetype-before-conversion="image/png" data-mimetype="image/webp" style="background-image: url(&#34;/web/image/6923-9a7a448a/Webbros_hero.webp&#34;);">
+        <div class="o_container_small">
+            <h2 style="text-align: center;"><br/></h2>
+            <p style="text-align: center;">&nbsp;</p>
+            
+        </div>
+    </section>
+    <section class="s_motto o_cc o_cc1 o_colored_level pt0 pb0" data-oe-shape-data="{&#39;shape&#39;:&#39;html_builder/Floats/07&#39;, &#39;showOnMobile&#39;:false, &#39;animated&#39;: true}" data-snippet="s_motto" data-name="Motto">
+        <div class="o_we_shape o_html_builder_Floats_07 o_we_animated"></div>
+        <div class="container">
+            <div class="row">
+                <div class="o_colored_level col-lg-10 pb4">
+                    <h2><br/></h2><h2><a href="https://Kuormat.com" class="o_translate_inline">Kuormat.com</a>&nbsp;kuljetustenvaraus-integraatio</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="s_three_columns pt32 pb32 o_colored_level o_cc o_cc3" data-vxml="001" data-vcss="001" data-snippet="s_three_columns" style="position: relative;" data-oe-shape-data="{&#34;shape&#34;:&#34;html_builder/Wavy/08_001&#34;,&#34;colors&#34;:{&#34;c5&#34;:&#34;#2A2A2A&#34;},&#34;flip&#34;:[],&#34;showOnMobile&#34;:false,&#34;shapeAnimationSpeed&#34;:&#34;0&#34;}"><div class="o_we_shape o_html_builder_Wavy_08_001 bg-o-color-1" style="background-image: url(&#34;/html_editor/shape/html_builder%2FWavy%2F08_001.svg?c5=%232A2A2A&#34;);"></div>
+        
+        <div class="container">
+            <div class="row d-flex align-items-stretch">
+                <div data-name="Card" class="col-lg-4 pt16 pb16">
+                    <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
+                        <figure class="o_card_img_wrapper mb-0">
+                            <img src="/web/image/6890-abfca819/iStock-raha-neliomaininen-2253359062.svg" alt="" data-attachment-id="6886" class="o_card_img card-img-top o_editable_media img img-fluid o_we_custom_image" style="padding: 32px !important;" data-format-mimetype="image/webp" data-resize-width="690" data-original-id="6886" data-original-src="/web/image/6886-741172ac/iStock-raha-neliomaininen-2253359062.jpg" data-mimetype-before-conversion="image/jpeg" data-mimetype="image/svg+xml" data-shape="html_builder/devices/macbook_3d_01" data-shape-colors=";;#4EA0B4;;" data-file-name="iStock-raha-neliomaininen-2253359062.svg" loading="lazy"/>
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title h5-fs"><br/></h2><h2 class="card-title h5-fs">Kuljetushinnan tiedustelu</h2>
+                            <p class="card-text">
+        Kuljetuksen hinnan voi tiedustella integraation avulla jo myyntivaiheessa. Hinta perustuu asiakkaan osoitteeseen ja tuotteiden painoon sekä valittuun kuljetustapaan. Saat siten tilaukselle kuljetuksen tarkan hinnan heti - mihin tahansa Euroopassa.</p>
+                        </div>
+                    </div>
+                </div>
+                <div data-name="Card" class="col-lg-4 pt16 pb16">
+                    <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
+                        <figure class="o_card_img_wrapper mb-0">
+                            <img src="/web/image/6884-34f5dd83/iStock-kuljetus-kartalla-2156009473.webp" alt="" data-attachment-id="6881" class="o_card_img card-img-top o_editable_media img img-fluid o_we_custom_image" style="padding: 32px !important;" data-format-mimetype="image/webp" data-resize-width="690" data-original-id="6881" data-original-src="/web/image/6881-00f03685/iStock-kuljetus-kartalla-2156009473.jpg" data-mimetype-before-conversion="image/jpeg" data-mimetype="image/webp" loading="lazy"/>
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title h5-fs">Kuljetuksen/noudon varaus<br/></h2>
+                            <p class="card-text">
+        Toimituksen pakkaamisen yhteydessö&nbsp;kuljetuksen voi tilata yhdellä napilla. Saat kuljetuksen tiedot suoraan Odoon näytölle.&nbsp;</p><p class="card-text">Jos kollien&nbsp;määrä muuttui tai tyyppi vaihtui, voit&nbsp;päivittää tilauksen hinnan ennen laskutusta - jos niin haluat.</p>
+                        </div>
+                    </div>
+                </div>
+                <div data-name="Card" class="col-lg-4 pt16 pb16">
+                    <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0 o_colored_level" data-vxml="001" data-snippet="s_card" data-name="Card">
+                        <figure class="o_card_img_wrapper mb-0">
+                            <img src="/web/image/6885-7eb7122f/iStock-barcode-print-1399719198.webp" alt="" data-attachment-id="6882" class="o_card_img card-img-top o_editable_media img img-fluid o_we_custom_image" style="padding: 32px !important;" data-format-mimetype="image/webp" data-resize-width="690" data-original-id="6882" data-original-src="/web/image/6882-424f3d8b/iStock-barcode-print-1399719198.jpg" data-mimetype-before-conversion="image/jpeg" data-mimetype="image/webp" loading="lazy"/>
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title h5-fs">&nbsp;Lavatarrojen tulostus<br/></h2>
+                            <p class="card-text">
+        Varatulle kuljetukselle voi tulostaa lavatarrat valmiiksi. Tämä nopeuttaa kollien hakua, kuljettaja voi suoraan skannata ne ja kuitata matkaan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><section class="s_title o_cc o_colored_level pb48 pt72 o_cc1" data-vcss="001" data-snippet="s_title" data-name="Title" data-mimetype="undefined" style="position: relative;" data-oe-shape-data="{&#34;shape&#34;:&#34;html_builder/Connections/16&#34;,&#34;colors&#34;:{&#34;c5&#34;:&#34;o-color-3&#34;},&#34;flip&#34;:[],&#34;showOnMobile&#34;:false,&#34;shapeAnimationSpeed&#34;:&#34;0&#34;}"><div class="o_we_shape o_html_builder_Connections_16" style="background-image: url(&#34;/html_editor/shape/html_builder%2FConnections%2F16.svg?c5=o-color-3&#34;);"></div>
+        <div class="s_allow_columns container">
+            <h2 class="display-3-fs" style="text-align: center;">Modulin käyttäminen:</h2><p><br/></p>
+        </div>
+    </section><section class="s_title o_cc o_colored_level pb40 pt48 o_cc2" data-vcss="001" data-snippet="s_title" data-name="Title" data-mimetype="undefined">
+        <div class="s_allow_columns container">
+            
+        <div class="row"><div class="col-lg-6 o_colored_level"><h3>Hintakyselyt tilauksille/tarjouksille</h3><p>Tilausvaiheessa tuotteiden syöttämisen jälkeen toimituskulut lisätään Odoon standarditoiminnolla "lisää toimitus", joka avaa avustimen (lisää toimitustapa), jossa valitaan miten toimitus tehdään. Tässä kohtaa valitaan aiemmin jokin aiemmin luoduista <a href="https://kuormat.com" class="o_translate_inline">kuormat.com</a>&nbsp;-integroiduista kuljetuksista (ellei haluta käyttää jotakin muuta).&nbsp;</p><p>Sen jälkeen "hae hinta" painike käy kysymässä <a href="https://Kuormat.com" class="o_translate_inline">Kuormat.com</a>&nbsp;palvelusta kuljetuksen hinnan asiakkaan osoitteeseen sille painomäärälle, joka tilauksen tuotteilla on. Tähän kuljetuksen ostohintaan voi lisätä oman marginaalin tai kiinteän katteen, kuten kaikille kuljetustavoille.&nbsp;</p><p>Tietyille kuljetustavoille, kuten paketeille, on maksimipainorajat, ja hintakysely varoittaa jos se ollaan ylittämässä. Pakettien&nbsp;määrää voi silloin kasvattaa, niin että saa keskipainon alas, ja vastaavasti kuljetuskustannus voi nousta.</p></div><div class="col-lg-6 o_colored_level"><p><img src="/web/image/6896-5833503d/screenshot_tilaus.webp" alt="" data-attachment-id="6895" class="img img-fluid o_we_custom_image" data-format-mimetype="image/webp" data-resize-width="1661" data-original-id="6895" data-original-src="/web/image/6895-ed1587b5/screenshot_tilaus.jpg" data-mimetype-before-conversion="image/jpeg" data-mimetype="image/webp" loading="lazy" style="width: 100% !important;"/></p></div></div></div>
+    </section><section class="s_image_text_box o_colored_level pt80 pb80" data-snippet="s_image_text_box" data-name="Image Text Box">
+        
+        <div class="container">
+            <div class="row">
+                <div class="o_colored_level col-lg-6" style="order: 1;">
+                    <img src="/web/image/6901-30cbc909/screenshot_toimitus_varaa.webp" alt="" data-attachment-id="6897" class="img img-fluid rounded order-lg-0 o_editable_media o_we_custom_image" data-format-mimetype="image/webp" data-resize-width="732" data-original-id="6897" data-original-src="/web/image/6897-fbe7c513/screenshot_toimitus_varaa.jpg" data-mimetype-before-conversion="image/jpeg" data-mimetype="image/webp" loading="lazy"/><br/><br/><br/><img src="/web/image/6903-18fa4d59/screenshot_toimitus_varaus_detalji.webp" alt="" data-attachment-id="6898" class="img img-fluid o_we_custom_image" data-format-mimetype="image/webp" data-resize-width="1920" data-original-id="6898" data-original-src="/web/image/6898-3b3028bb/screenshot_toimitus_varaus_detalji.jpg" data-mimetype-before-conversion="image/jpeg" data-mimetype="image/webp" loading="lazy"/><br/></div><div class="o_colored_level col-lg-6" style="order: 2;"><h3>
+                    Kuljetuksen varaus toimitukselle</h3><p>Toimituksella on uusi toimintopainike "Varaa kuljetus", jonka avulla varsinainen kuljetus varataan.&nbsp;</p><p>Oletuksena käytetään jo tilausvaiheessa valittua toimitustapaa (vaikkapa paketit tai EUR-lava) mutta sen voi vielä vaihtaa, ja katsoa miten se vaikuttaa hintaan. Myös kollin mitat voi päivittää, sekä pinottavuustiedon, jotka vaikuttavat tietyissä tapauksissa hintaan. Samoin kolleja vyö syöttää enemmänkin kuin vain yhden, ja ne voivat olla keskenään erilaisia (esim lava + paketti).&nbsp;</p><p>Kun kuljetuksen detaljit ovat kohdillaan, voi suorittaa varsinaisen varauksen yhdellä napilla. Jos jo alusta asti oli selvää, että toimitus joka tapauksessa ottaa vaikkapa yhden eurolavan, ei detaljeja varsinaisesti tarvitse syöttää vaan varauksen voi tehdä heti.</p><p>Onnistunut varaus näkyy ruudulla ja chatter-tekstissä.</p><p><br/></p><p><img src="/web/image/6902-0800a3f4/screenshot_toimitus_varattu.webp" alt="" data-attachment-id="6900" class="img img-fluid o_we_custom_image" data-format-mimetype="image/webp" data-resize-width="690" data-original-id="6900" data-original-src="/web/image/6900-58a0bee3/screenshot_toimitus_varattu.jpg" data-mimetype-before-conversion="image/jpeg" data-mimetype="image/webp" loading="lazy"/></p></div>
+                
+            </div>
+        </div>
+    </section><section class="s_title o_cc o_colored_level o_cc4 bg-white pb120 pt64" data-vcss="001" data-snippet="s_title" data-name="Title" data-mimetype="undefined">
+        <div class="s_allow_columns container">
+            
+        <div class="row o_grid_mode" data-row-count="8"><div class="o_grid_item g-height-2 o_colored_level g-col-lg-8 col-lg-8" style="z-index: 3; grid-area: 1 / 1 / 3 / 9;"><h3 style="text-align: center;">Lavatarrat</h3><p>Kolleille saa lavatarrat "hae tarrat" painikkeella. Tarrat tulevat PDF-tiedostoina ja ne näkyvät chatterissä, josta ne voidaan avata ja tulostaa ulos.</p><p><br/></p><p><br/></p></div><div class="o_colored_level o_grid_item g-col-lg-4 g-height-8 col-lg-4" style="z-index: 1; grid-area: 1 / 9 / 9 / 13;"><p><img src="/web/image/6907-b66f3205/screenshot-toimitus-tarra.webp" alt="" data-attachment-id="6905" class="img img-fluid o_we_custom_image" data-format-mimetype="image/webp" data-resize-width="1888" data-original-id="6905" data-original-src="/web/image/6905-ebb009be/screenshot-toimitus-tarra.jpg" data-mimetype-before-conversion="image/jpeg" data-mimetype="image/webp" loading="lazy"/></p></div><div class="o_colored_level o_grid_item g-col-lg-8 g-height-5 col-lg-8" style="z-index: 2; grid-area: 4 / 1 / 9 / 9;"><p><img src="/web/image/6906-2066860e/screenshot-toimitus-tarrat.webp" alt="" data-attachment-id="6904" class="img img-fluid o_we_custom_image" data-format-mimetype="image/webp" data-resize-width="1920" data-original-id="6904" data-original-src="/web/image/6904-440c055b/screenshot-toimitus-tarrat.jpg" data-mimetype-before-conversion="image/jpeg" data-mimetype="image/webp" loading="lazy"/></p></div></div></div>
+    </section><section class="s_shape_image pt32 o_colored_level pb56 o_half_screen_height" data-snippet="s_shape_image" data-name="Shape image">
+        <div class="container">
+            <div class="row o_grid_mode" data-row-count="12">
+                
+                
+            <div class="o_colored_level o_grid_item g-col-lg-5 g-height-12 col-lg-5" style="z-index: 1; grid-area: 1 / 1 / 13 / 6;">
+                    <h2 class="h3-fs">Seurantalinkit</h2>
+                    <p><br/>Kuljetukselle ja sen kolleille tulee seurantalinkit, joiden kautta kuljetuksen vaiheita voi seurata. Linkki näkyy chatterissä, ja myös kuljetuksen jokaisen kollin tiedoissa.</p><p>Linkin voi lisätä myös asiakkalle menevään toimitusilmoitukseen (emailiin). Nämä viestipohjat ovat yleensä yrityskohtaisia, joten tämä asia tulee tehdä yrityskohtaisesti. Webbros oy auttaa mielellään tämänkin asetuksen virittämisessä, jos sen muuttaminen ei ole&nbsp;itsestäänselvän helppoa.</p><p><br/></p><p><img src="/web/image/6910-afa3b07e/screenshot-seurantalinkki.webp" alt="" data-attachment-id="6908" class="img img-fluid o_we_custom_image" data-format-mimetype="image/webp" data-resize-width="806" data-original-id="6908" data-original-src="/web/image/6908-ec802379/screenshot-seurantalinkki.jpg" data-mimetype-before-conversion="image/jpeg" data-mimetype="image/webp" style="width: 100% !important;" loading="lazy"/></p>
+                    <p>
+                        &nbsp;<br/></p>
+                </div><div class="o_grid_item o_grid_item_image o_colored_level g-height-11 g-col-lg-7 col-lg-7" style="z-index: 2; grid-area: 1 / 6 / 12 / 13;"><img src="/web/image/6911-c2a4d1c6/screenshot-postnord.webp" alt="" data-attachment-id="6909" class="img img-fluid o_we_custom_image o_editable_media" data-format-mimetype="image/webp" data-resize-width="1636" data-original-id="6909" data-original-src="/web/image/6909-f5db4687/screenshot-postnord.jpg" data-mimetype-before-conversion="image/jpeg" data-mimetype="image/webp" loading="lazy"/></div></div>
+        </div>
+    </section><section class="s_text_image pt80 o_colored_level o_cc o_cc2 pb48" data-snippet="s_image_text" data-name="Image - Text">
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="offset-lg-1 pt16 pb16 o_colored_level col-lg-4">
+                    <h2 class="h3-fs">
+        &nbsp;Odoon konfigurointi&nbsp;</h2>
+        <p><br/></p>
+                    <p>
+        Modulin asentamisen jälkeen tulee varasto-modulin toimitustapoihin lisätä yksi tai useampi <a class="o_translate_inline" href="https://Kuormat.com"><font style="color: rgb(242, 123, 151);"><strong>Kuormat.com</strong></font></a><font style="color: rgb(242, 123, 151);"><strong>&nbsp;toimitus</strong></font> -palveluntarjoajaan kytketty tapa. Tälle&nbsp;palveluntarjoajalle&nbsp;avautuu ruudun alaosaan erillinen välilehti "<a href="https://kuormat.com" class="o_translate_inline">kuormat.com</a>&nbsp;asetukset", jonne asetukset tehdään.&nbsp;</p><p>Tärkein valinta on, mikä kuljetustyyppi tähän toimitustapaan kytkeytyy. Erilaisilla lisäasetuksilla, kuten esim paketin koon esimäärityksellä, vältetään saman tiedon syöttämistä joka tilaukselle erikseen. Toimitustapoja voi rakentaa useita rinnakkaisia tarpeen mukaan.</p><p>Webbros oy tarjoaa apua sekä asetusten tekemiseen, että vaikka koko logistiikka-prosessin miettimiseen, jos modulin käyttöönotto tuntuu hankalalta.&nbsp;</p>
+                </div><div class="o_colored_level pt0 col-lg-7 pb120">
+                    <img src="/web/image/6913-f1aa0b2e/screenshot-toimitustavat.webp" alt="" data-attachment-id="6912" class="img img-fluid mx-auto rounded o_we_custom_image" style="padding: 32px !important;" data-format-mimetype="image/webp" data-resize-width="690" data-original-id="6912" data-original-src="/web/image/6912-5a49948f/screenshot-toimitustavat.jpg" data-mimetype-before-conversion="image/jpeg" data-mimetype="image/webp" loading="lazy"/>
+                </div>
+                
+            </div>
+        </div>
+    </section><section class="s_faq_collapse pt32 pb32 o_cc o_colored_level o_cc5" data-vcss="001" data-snippet="s_faq_collapse" data-name="FAQ Block">
+        <div class="container">
+            <div class="row s_nb_column_fixed align-items-start">
+                <div class="col-lg-4 pt16 o_colored_level">
+                    <h2 class="h3-fs">Yleisiä kysymyksiä</h2>
+                    <p class="lead">Ohessa muutamia mahdollisia kysymyksiä vastattuina&nbsp;&nbsp;</p>
+                </div>
+                <div class="col-lg-7 offset-lg-1 s_col_no_bgcolor" data-name="Accordion Box">
+    <div data-name="Accordion" data-snippet="s_accordion" class="s_accordion">
+        <div id="myCollapse1780003303603" class="accordion-flush accordion">
+            <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                <button type="button" class="accordion-header accordion-button gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none collapsed justify-content-end flex-row-reverse o_icons_position_reversed" data-bs-toggle="collapse" aria-expanded="false" id="myCollapseBtn1780003303605" data-bs-target="#myCollapseTab1780003303604" aria-controls="myCollapseTab1780003303604"><span class="flex-grow-1">Mitä tietoja pitää syöttää hintakyselyyn&nbsp;</span></button>
+                <div class="accordion-collapse collapse" data-bs-parent="#myCollapse1780003303603" role="region" id="myCollapseTab1780003303604" aria-labelledby="myCollapseBtn1780003303605">
+                    <div class="accordion-body">
+                        <p>Optimitapauksessa ei mitään muuta kuin kuljetustapa, siis että pakataanko lavoille vai paketteihin. Odoo tietää tilauksesta automaattisesti sekä lähtö- että vastaanottosoitteen, sekä tuotteiden painot, jos ne vain on ylläpidetty asianmukaisesti. Muuta tietoa ei tarvita.</p><p>Käytännössä voi tulla tilanteita, varsinkin erikoisempien tuotteiden kohdalla, että myyntivaiheessa ei voida tietää montako kollia tavarat tarvitsevat. Silloinkaan ei tarvitse jäädä pelkän&nbsp;parhaan arvion varaan. On mahdollista odottaa lähetyksen pakkaamiseen saakka, ja päivittää hintatilanne siinä kohtaa uudelleen. Tässä on järkeä varsinkin, jos asiakkaan kanssa on tällaisesta todellisiin kustannuksiin perustuvasta toiminnasta sovittu.</p><p>Jos kuljetus on "mahdoton", esimerkiksi 200kg paketti, käyttäjä saa siitä ilmoituksen. Tilauksen voi silloin jakaa useammaksi pienemmäksi paketiksi, ja laskea hinnan tarvittavien pakettien määrän mukaan.&nbsp;</p>
+                    </div>
+                </div>
+            </div><div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                <button type="button" class="accordion-header accordion-button gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none justify-content-end flex-row-reverse o_icons_position_reversed collapsed" data-bs-toggle="collapse" aria-expanded="false" id="myCollapseBtn1780039812282" data-bs-target="#myCollapseTab1780039812281" aria-controls="myCollapseTab1780039812281"><span class="flex-grow-1">Mitä jos tuotteiltani puuttuvat painot?&nbsp;&nbsp;</span></button>
+                <div class="accordion-collapse collapse" data-bs-parent="#myCollapse1780003303603" role="region" id="myCollapseTab1780039812281" aria-labelledby="myCollapseBtn1780039812282">
+                    <div class="accordion-body">
+                        <p>Toisinaan tuoterekisteriltä puuttuu osalta tuotteilta painot. Silloin toimituksen hinnoittelu näkee painot nollina, ja tekee varauksen liian kevyenä.</p><p>Oikeaoppinen ratkaisu on tietenkin päivittää painot kohdilleen. Siihen on monia keinoja, kysy Webbrosilta apua ja vinkkejä jos asia on hankala. Jos tieto esimerkiksi löytyisi CAD-suunnitteluohjelmasta tai toimittajalta, sen voi erilaisilla tekniikoilla lukea järjestelmään.</p><p>Hintakyselyn osalta kiertotienä voi käyttää käsin syötettyä painoa, jos tieto kuitenkin löytyy myyjän korvan vierestä ns näppituntumalla. Ja monesti mm lavakuljetuksilla painoraja on niin korkea, että tarkka paino ei muuta hintaa, jolloin puutteesta ei ole isoa väliä.</p><p>Varsinaisen toimituksen osalta painot saa selville myös puntarin kautta. Odoo tukee myös ns IOT-boxia, jolla kytket Odooseen erilaisia laitteita, kuten vaikka vaa'an. Saat siis lukeman "hyppäämään" laitteesta Odoon ruudulle automaattisesti. Kysy Webbrosilta miten tämä tehdään!</p><p><br/></p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                <button type="button" class="accordion-header accordion-button gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none justify-content-end flex-row-reverse o_icons_position_reversed collapsed" data-bs-toggle="collapse" aria-expanded="false" id="myCollapseBtn1780003303607" data-bs-target="#myCollapseTab1780003303606" aria-controls="myCollapseTab1780003303606"><span class="flex-grow-1">Voivatko pakettien koot vaihdella? &nbsp;&nbsp;</span></button>
+                <div class="accordion-collapse collapse" data-bs-parent="#myCollapse1780003303603" role="region" id="myCollapseTab1780003303606" aria-labelledby="myCollapseBtn1780003303607">
+                    <div class="accordion-body">
+                        <p>Toki voivat. Käytännön helpottamiseksi kullekin toimitustavalle on laitettu taustatietoihin kollin oletuskoko, jolloin sitä ei tarvitse erikseen aina syöttää. Mutta jos koko vaihtelee, mitat voi syöttää toimitukselle aina erikseenkin.</p><p>Jos mitat menevät kuljetuksentarjoajan rajoista yli, antaa varauksen tekeminen siitä välittömästi varoituksen, mahdottomia pyyntöjä ei saa läpi. Sama pätee painon suhteen.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                <button type="button" class="accordion-header accordion-button gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none justify-content-end flex-row-reverse o_icons_position_reversed collapsed" data-bs-toggle="collapse" aria-expanded="false" id="myCollapseBtn1780003303609" data-bs-target="#myCollapseTab1780003303608" aria-controls="myCollapseTab1780003303608"><span class="flex-grow-1">Miten saan PDF:t liimattua kolleihin? &nbsp;</span></button>
+                <div class="accordion-collapse collapse" data-bs-parent="#myCollapse1780003303603" role="region" id="myCollapseTab1780003303608" aria-labelledby="myCollapseBtn1780003303609">
+                    <div class="accordion-body">
+                        <p>Tarrat eivät tietenkään ole konkreettisia tarroja, kun ne tulevat PDF-tiedostoina palvelusta. Jos ne tulostaa tavalliselle A4-paperille, niin ne pitää sen jälkeen erikseen teipata kollin kylkeen mikä tuntuu vaivalloiselta.</p><p>Sakset ja teippi -vaihtoehdon lisäksi tähän on muitakin keinoja. Jotkut käyttävät muovitaskuja, jotka samalla suojaavat sateelta. Toiset laittavat printteriin A4 tai A5-tarrapaperia, jossa on valmis liimapinta. Zebra-printterit pystyvät tulostamaan myös PDF-koodia, ja Zebrat saa IOT-boxilla suoraan Odooseen kiinni.&nbsp;</p><p>Voit myös pallotella näitä kysymyksiä Webbrosin asiantuntijoiden kanssa.&nbsp;</p>
+                    </div>
+                </div>
+            </div><div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                <button type="button" class="accordion-header accordion-button gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none justify-content-end flex-row-reverse o_icons_position_reversed collapsed" data-bs-toggle="collapse" aria-expanded="false" id="myCollapseBtn1780003303611" data-bs-target="#myCollapseTab1780003303610" aria-controls="myCollapseTab1780003303610"><span class="flex-grow-1">Noutopisteet &nbsp;</span></button>
+                <div class="accordion-collapse collapse" data-bs-parent="#myCollapse1780003303603" role="region" id="myCollapseTab1780003303610" aria-labelledby="myCollapseBtn1780003303611">
+                    <div class="accordion-body">
+                        <p>Postnordilla on Suomessa 2600 noutopistettä, mikä on suurinpiirtein sama määrä kuin Postilla, ja kuljetukset voidaan ohjata myös niihin.&nbsp;</p><p>Ota yhteyttä Webbrosiin&nbsp;saadaksesi tämän toiminnon käyttöön, se ei ole toistaiseksi saatavilla perusversiossa.</p>
+                    </div>
+                </div>
+            </div><div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                <button type="button" class="accordion-header accordion-button gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none justify-content-end flex-row-reverse o_icons_position_reversed collapsed" data-bs-toggle="collapse" aria-expanded="false" id="myCollapseBtn1780003303613" data-bs-target="#myCollapseTab1780003303612" aria-controls="myCollapseTab1780003303612"><span class="flex-grow-1">Miten saan seurantanumeron välitettyä asiakkaalle?&nbsp;&nbsp;</span></button>
+                <div class="accordion-collapse collapse" data-bs-parent="#myCollapse1780003303603" role="region" id="myCollapseTab1780003303612" aria-labelledby="myCollapseBtn1780003303613">
+                    <div class="accordion-body">
+                        <p>Jokaiselle kuljetettavalle paketille muodostuu oma seurantanumeronsa, mikä on näkyvissä chatterissä. Myös toimituksen seuranta-nappi on kytketty avaamaan seurantanumeron mukainen sivu nettiselaimeen, joten toimituksen kulkua voi helposti seurata asiakkaalle asti. Omalta ruudulta. Mutta miten asiakas näkee sen?</p><p>Toimituksista voi liipaista viestin asiakkaalle, ja seurantanumeron voi lisätä tähän viestiin. Nämä viestit on yleensä jokaisella Odoo-käyttäjällä jo valmiiksi tuunattu tietynlaisiksi, joten myös tämä lisäys pitää tehdä yksilöllisesti jokaiselle asiakkaalle erikseen. Me Webbrosissa autamme tässäkin.</p><p>Tiesithän, että toimitusviestit saa asiakkaalle sähköpostin lisäksi myös SMS- tai WhatsUpp-viestinä?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </section><section class="s_cards_soft o_cc o_cc1 pt48 pb32 o_colored_level bg-white" data-snippet="s_cards_soft" data-name="Cards Soft">
+        <div class="container">
+            <h2 style="text-align: center;">Käyttöönotto</h2><p><br/></p>
+            <div class="row"><div data-name="Card" class="pt16 pb16 col-lg-3"><div class="s_card card o_cc o_colored_level o_cc4" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;"><div class="card-body"><h3 class="card-title h5-fs">Rekisteröidy Kuormat.com:iin</h3>
+                            <p class="card-text">Mene <a href="https://kuormat.com" class="o_translate_inline">kuormat.com</a>&nbsp;nettisivuille ja luo itsellesi / yrityksellesi tunnukset.&nbsp;&nbsp;</p><p class="card-text">Voit heti alkaa tilaamaan kuljetuksia nettiselaimen kautta. Tässä vaiheessa joudut tosin näpyttelemään jokaisen kuljetustilauksen tiedot sisään käsin.</p><p class="card-text"><br/></p>
+                            <img src="/web/image/6915-c936cda6/kuormat_com_logo.webp" alt="" data-attachment-id="6914" class="img img-fluid rounded o_we_custom_image" data-format-mimetype="image/webp" data-resize-width="690" data-original-id="6914" data-original-src="/web/image/6914-19862dd6/kuormat_com_logo.png" data-mimetype-before-conversion="image/png" data-mimetype="image/webp" loading="lazy"/><br/><br/></div>
+                    </div>
+                </div>
+                <div data-name="Card" class="pt16 pb16 col-lg-3">
+                    <div class="s_card card o_cc o_colored_level o_cc2" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
+                        <div class="card-body">
+                            <h3 class="card-title h5-fs">Hanki Odoo ja tämä moduli&nbsp;</h3>
+                            <p class="card-text">Ellet jo käytä Odoo-järjestelmää, tilaa se välittömästi itsellesi Webbrosin kautta.</p><p class="card-text">Muussa tapauksessa yksinkertaisesti vain lataa tämä moduli käyttöösi - se on ilmainen.</p><p class="card-text">&nbsp;<img src="/web/image/6920-c85ec0c6/odoo_logo_solid_white.webp" alt="" data-attachment-id="6919" class="img img-fluid rounded o_we_custom_image" data-format-mimetype="image/webp" data-resize-width="690" data-original-id="6919" data-original-src="/web/image/6919-93e2ed74/odoo_logo_solid_white.jpg" data-mimetype-before-conversion="image/jpeg" data-mimetype="image/webp" loading="lazy"/>
+                        </p></div>
+                    </div>
+                </div>
+                <div data-name="Card" class="pt16 col-lg-3 pb0">
+                    <div class="s_card card o_cc o_colored_level o_cc1" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
+                        <div class="card-body">
+                            <h3 class="card-title h5-fs">Aktivoi API-avaimet&nbsp;</h3>
+                            <p class="card-text">Ne ovat ikäänkuin rinnakkainen käyttäjätunnus&nbsp;<a href="https://Kuormat.com" class="o_translate_inline">Kuormat.com</a>&nbsp; palveluun ja löytyvät profiiliasetuksista.</p><p class="card-text">Luo API-avain ja ota koodi talteen. Tarvitset myös asiakastunnuksesi.</p><p class="card-text"><br/></p>
+                            <img src="/web/image/6921-e8220949/screenshot-kuormat-api.webp" alt="" data-attachment-id="6917" class="img img-fluid rounded o_we_custom_image" data-format-mimetype="image/webp" data-resize-width="690" data-original-id="6917" data-original-src="/web/image/6917-8399a098/screenshot-kuormat-api.jpg" data-mimetype-before-conversion="image/jpeg" data-mimetype="image/webp" loading="lazy"/>
+                        </div>
+                    </div>
+                </div><div data-name="Card" class="pt16 pb16 col-lg-3">
+                    <div class="s_card card o_cc o_colored_level o_cc3" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
+                        <div class="card-body">
+                            <h3 class="card-title h5-fs">Määrittele kuljetustavat&nbsp;</h3>
+                            <p class="card-text">Luo uusia kuljetustapoja Odoon varastomoduliin ja syötä API-tunnukset asetuksiin ja täydennä muutkin asetukset haluamiksesi.&nbsp;</p><p class="card-text">Jos et osaa, soita Webbrosille.</p>
+                            <img src="/web/image/6913-f1aa0b2e/screenshot-toimitustavat.webp" alt="" data-attachment-id="6912" class="img img-fluid rounded o_we_custom_image" data-format-mimetype="image/webp" data-resize-width="690" data-original-id="6912" data-original-src="/web/image/6912-5a49948f/screenshot-toimitustavat.jpg" data-mimetype-before-conversion="image/jpeg" data-mimetype="image/webp" loading="lazy"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+    
+        <div id="o_shared_blocks" class="oe_unremovable"></div>
+                </main>
+                <footer id="bottom" data-anchor="true" data-name="Footer" class="o_footer o_colored_level o_cc  o_footer_slideout">
+                    <div id="footer" class="oe_structure oe_structure_solo">
+            
+            <section class="s_text_block pt16 pb16" data-snippet="s_text_block" data-name="Logo" style="background-image: none;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2 offset-lg-5 o_colored_level">
+                            <a href="/" class="o_footer_logo logo" data-bs-original-title="" title="">
+                                <img src="/web/image/3622-13678d14/WBlines_eggshell.png" alt="" class="img-fluid mx-auto img o_we_custom_image" data-original-id="3537" data-original-src="/web/image/3537-9cd80173/WBlines_eggshell.png" data-mimetype="image/png" data-resize-width="690" loading="lazy"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    <div class="o_footer_copyright o_colored_level o_cc" data-name="Copyright">
+                        <div class="container py-3">
+                            <div class="row row-gap-2">
+                                <div class="col-sm text-center text-sm-start text-muted">
+                                    <span class="o_footer_copyright_name me-2">Copyright © Webbros oy</span>
+        <div class="js_language_selector  dropup d-print-none small o_prevent_link_editor">
+            <div role="menu" class=" list-inline">
+                    <a class="js_change_lang  list-inline-item" role="menuitem" href="/en/kuormat-com-integration?height=25" data-url_code="en" title="English (US)">
+  <img class="o_lang_flag" style="" src="?height=25" loading="lazy"/>
+                        <span class="">English (US)</span>
+                    </a>
+            <span class="list-inline-item">|</span>
+                    <a class="js_change_lang active list-inline-item" role="menuitem" href="/kuormat-com-integration?height=25" data-url_code="fi" title=" Suomi">
+  <img class="o_lang_flag" style="" src="?height=25" loading="lazy"/>
+                        <span class=""> Suomi</span>
+                    </a>
+            </div>
+        </div>
+                                </div>
+                                <div class="text-center o_not_editable small col-md mt-auto mb-0 text-md-end">
+        <div class="o_brand_promotion">
+
+        Powered by 
+            <a target="_blank" class="badge text-bg-light" href="http://www.odoo.com?utm_source=db&amp;utm_medium=website">
+                <img alt="Odoo" src="/web/static/img/odoo_logo_tiny.png" width="62" height="20" style="width: auto; height: 1em; vertical-align: baseline;" loading="lazy"/>
+            </a>
+         and 
+            <a target="_blank" class="badge text-bg-light" href="http://www.webbros.fi">Webbros</a>
+        
+        
+        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        
+        </body>
+</html>

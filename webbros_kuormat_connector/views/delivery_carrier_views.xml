@@ -6,27 +6,29 @@
         <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='destination']" position="before">
-                <page string="Kuormat Configuration" name="wb_kuormat_configuration" invisible="delivery_type != 'wb_kuormat'">
+                <page string="Kuormat.Com Configuration" name="wb_kuormat_configuration" invisible="delivery_type != 'wb_kuormat'">
                     <group>
-                        <group name="left" string="Kuormat.com Credentials">
+                        <group name="left" string="Kuormat.Com Credentials">
                             <field name="wb_kuormat_api_secret" groups="base.group_system"/>
                             <field name="wb_kuormat_api_key" groups="base.group_system"/>
                             <field name="wb_kuormat_partner_id" invisible="1" groups="base.group_system"/>
                             <field name="wb_kuormat_test_mode" groups="base.group_no_one"/>
                             <field name="wb_kuormat_show_price_in_delivery"/>
                             <field name="wb_kuormat_update_sale_price"/>
+                            <field name="wb_kuormat_fetch_postnord"/>
+                            <field name="wb_kuormat_fetch_dhl"/>
                         </group>
-                        <group name="right" string="Kuormat Settings Defaults">
+                        <group name="right" string="Kuormat.Com Settings Defaults">
                             <field name="wb_kuormat_default_shipment_type_id"/>
                             <field name="wb_kuormat_default_length"/>
                             <field name="wb_kuormat_default_width"/>
                             <field name="wb_kuormat_default_height"/>
                             <field name="wb_kuormat_stackable"/>
-                            <field name="wb_kuormat_dangerous_goods"/>
-                            <field name="wb_kuormat_call_before_delivery"/>
-                            <field name="wb_kuormat_attended"/>
-                            <field name="wb_kuormat_signature_assurance"/>
-                            <field name="wb_kuormat_book_pickup"/>
+<!--                            <field name="wb_kuormat_dangerous_goods"/>-->
+<!--                            <field name="wb_kuormat_call_before_delivery"/>-->
+<!--                            <field name="wb_kuormat_attended"/>-->
+<!--                            <field name="wb_kuormat_signature_assurance"/>-->
+                            <field name="wb_kuormat_book_pickup" invisible="1"/>
                         </group>
                     </group>
                 </page>

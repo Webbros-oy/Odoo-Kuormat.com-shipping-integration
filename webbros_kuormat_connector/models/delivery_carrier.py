@@ -15,18 +15,22 @@ class DeliveryCarrier(models.Model):
     _inherit = 'delivery.carrier'
 
     delivery_type = fields.Selection(
-        selection_add=[('wb_kuormat', 'Delivery Kuormat')],
+        selection_add=[('wb_kuormat', 'Delivery Kuormat.Com')],
         ondelete={'wb_kuormat': 'set default'}
     )
 
     wb_kuormat_api_key = fields.Char(string='API Key', groups='base.group_system')
     wb_kuormat_api_secret = fields.Char(string='Customer ID', groups='base.group_system')
-    wb_kuormat_test_mode = fields.Boolean(string='Kuormat Test Mode', default=False)
-    wb_kuormat_partner_id = fields.Char(string='Partner ID', groups='base.group_system', default='Odoo-537194', help="Partner Reference ID given by Kuormat")
+    wb_kuormat_test_mode = fields.Boolean(string='Kuormat.Com Test Mode', default=False)
+    wb_kuormat_partner_id = fields.Char(string='Partner ID', groups='base.group_system', default='Odoo-537194', help="Partner Reference ID given by Kuormat.Com")
 
     # Control fields
     wb_kuormat_show_price_in_delivery = fields.Boolean("Show Price in Delivery Document")
     wb_kuormat_update_sale_price = fields.Boolean("Update Sale Price from Shipment")
+
+    # Sub-Carriers
+    wb_kuormat_fetch_postnord = fields.Boolean("Fetch PostNord Price", default=True)
+    wb_kuormat_fetch_dhl = fields.Boolean("Fetch DHL Price", default=True)
 
     # Defaults
     wb_kuormat_default_shipment_type_id = fields.Many2one('wb.kuormat.shipment.types', string="Shipment Type")
@@ -38,7 +42,7 @@ class DeliveryCarrier(models.Model):
     wb_kuormat_call_before_delivery = fields.Boolean("Call before delivery")
     wb_kuormat_attended = fields.Boolean("Attended")
     wb_kuormat_signature_assurance = fields.Boolean("Signature assurance")
-    wb_kuormat_book_pickup = fields.Boolean("Book Pickup & Generate Labels", default=True,
+    wb_kuormat_book_pickup = fields.Boolean("Book Pickup", default=True,
         help="If enabled, automatically books a PostNord pickup and generates labels on shipment creation.")
 
     @api.onchange('wb_kuormat_default_shipment_type_id')
@@ -51,12 +55,12 @@ class DeliveryCarrier(models.Model):
     def _wb_kuormat_make_request(self, endpoint, payload, method='POST'):
         """
         Makes a standard HTTP request to the Kuormat API.
-        
+
         Args:
             endpoint (str): The API endpoint path (e.g., 'price', 'shipment').
             payload (dict): The JSON payload to be sent.
             method (str): HTTP method to use (default 'POST').
-            
+
         Returns:
             dict: The parsed JSON response from the API, or a dict containing an 'error'.
         """
@@ -74,9 +78,9 @@ class DeliveryCarrier(models.Model):
         try:
             if getattr(self, 'debug_logging', False):
                 _logger.info("Kuormat API Request [%s]: %s\nPayload: %s", method, url, payload)
-                
+
             # We use json=payload to ensure it's sent as application/json
-            response = requests.request(method, url, json=payload, headers=headers, timeout=10)
+            response = requests.request(method, url, json=payload, headers=headers, timeout=15)
 
             if getattr(self, 'debug_logging', False):
                 _logger.info("Kuormat API Response [%s]:\n%s", response.status_code, response.text)
@@ -102,10 +106,10 @@ class DeliveryCarrier(models.Model):
         """
         Rates a shipment based on the provided sale order.
         Calculates price using the 'price' endpoint of the Kuormat API.
-        
+
         Args:
             order (recordset): The sale.order requiring a shipping rate.
-            
+
         Returns:
             dict: Containing 'success', 'price', 'error_message', and 'warning_message'.
         """
@@ -126,12 +130,21 @@ class DeliveryCarrier(models.Model):
 
         sender_zip = order.warehouse_id.partner_id.zip or self.company_id.zip or '00100'
         sender_cc = order.warehouse_id.partner_id.country_id.code or self.company_id.country_id.code
-        
+
         recv_zip = order.partner_shipping_id.zip or '33100'
         recv_cc = order.partner_shipping_id.country_id.code
 
+        carriers_to_fetch = []
+        if self.wb_kuormat_fetch_postnord:
+            carriers_to_fetch.append('postnord')
+        if self.wb_kuormat_fetch_dhl:
+            carriers_to_fetch.append('dhl')
+        if not carriers_to_fetch:
+            carriers_to_fetch = ['postnord']
+
         payload = {
             'shipments': [{
+                'carriers': carriers_to_fetch,
                 'sender': {
                     'postalCode': sender_zip,
                     'countryCode': sender_cc if sender_cc in allowed_countries else 'FI',
@@ -150,12 +163,13 @@ class DeliveryCarrier(models.Model):
                     'width': self.wb_kuormat_default_width or 10,
                     'height': self.wb_kuormat_default_height or 10,
                     'stackable': self.wb_kuormat_stackable,
+                    'description': order.name or 'Goods',
                 }]
             }]
         }
 
         res = self._wb_kuormat_make_request('price', payload)
-        
+
         # Check root level error
         if 'error' in res:
             err_data = res['error']
@@ -177,7 +191,7 @@ class DeliveryCarrier(models.Model):
         # Extract price from the response shipments array
         try:
             shipment_res = res.get('shipments', [{}])[0]
-            
+
             # Check shipment level error
             if 'error' in shipment_res:
                 err_data = shipment_res['error']
@@ -191,7 +205,7 @@ class DeliveryCarrier(models.Model):
                 else:
                     err_msg = str(err_data)
                 raise UserError(_("Kuormat Pricing Error: %s") % err_msg)
-            
+
             if 'errors' in shipment_res:
                 errors = shipment_res['errors']
                 if isinstance(errors, list):
@@ -204,21 +218,32 @@ class DeliveryCarrier(models.Model):
                     raise UserError(_("Kuormat Pricing Error:\n%s") % "\n".join(err_msgs))
                 else:
                     raise UserError(_("Kuormat Pricing Error: %s") % str(errors))
-            
+
             if 'prices' in shipment_res and shipment_res['prices']:
                 # Find minimum price
-                prices_list = [p.get('price', 0.0) for p in shipment_res['prices'] if p.get('price') is not None]
-                price = min(prices_list) if prices_list else 0.0
+                best_price_obj = min(
+                    [p for p in shipment_res['prices'] if p.get('price') is not None],
+                    key=lambda x: x.get('price', float('inf')),
+                    default={}
+                )
+                price = best_price_obj.get('price', 0.0)
+                best_carrier = best_price_obj.get('priceType') or best_price_obj.get('carrier') or 'postnord'
             else:
                 price = shipment_res.get('totalPrice', 0.0)
+                best_carrier = shipment_res.get('priceType') or 'postnord'
+
+            if best_carrier:
+                order.wb_kuormat_carrier = best_carrier.lower()
+
         except UserError:
             raise
-        except (IndexError, KeyError, TypeError, ValueError):
-            price = 0.0
+        except (IndexError, KeyError, TypeError, ValueError) as e:
+            raise UserError(f"Kuormat API parsing error: {e}\nResponse: {res}")
 
         return {
             'success': True,
             'price': float(price),
+            'wb_kuormat_carrier': best_carrier,
             'error_message': False,
             'warning_message': False
         }
@@ -239,10 +264,10 @@ class DeliveryCarrier(models.Model):
         """
         Fetches labels for all Kuormat shipments linked to the given pickings
         and attaches the resulting PDF(s) to the picking document.
-        
+
         Args:
             pickings (recordset): The stock.picking records to get labels for.
-            
+
         Returns:
             list: A list of dicts returning success boolean and picking_id.
         """
@@ -310,10 +335,10 @@ class DeliveryCarrier(models.Model):
     def wb_kuormat_get_tracking_link(self, picking):
         """
         Returns the tracking URL for the given picking.
-        
+
         Args:
             picking (recordset): The stock.picking containing the tracking reference.
-            
+
         Returns:
             str: The tracking URL as a string.
         """
@@ -325,29 +350,29 @@ class DeliveryCarrier(models.Model):
                 first_package = first_shipment.package_ids[0]
                 if first_package.url:
                     return first_package.url
-                    
+
         # Fallback to standard URL layout if no nested package URLs exist
         return f'https://kuormat.com/track/{picking.carrier_tracking_ref}'
 
     def wb_kuormat_cancel_shipment(self, pickings):
         """
         Cancels the shipment.
-        
+
         Args:
             pickings (recordset): The stock.picking records to cancel.
         """
         for picking in pickings:
             if not picking.carrier_tracking_ref:
                 continue
-                
+
             payload = {'tracking_number': picking.carrier_tracking_ref}
             api_res = self._wb_kuormat_make_request(
-                f'shipment/{picking.carrier_tracking_ref}', 
-                payload, 
+                f'shipment/{picking.carrier_tracking_ref}',
+                payload,
                 method='DELETE'
             )
-            
+
             if 'error' in api_res:
                 raise UserError(_("Failed to cancel Kuormat shipment: %s") % api_res['error'])
-                
+
             picking.message_post(body=_("Shipment %s cancelled with Kuormat") % picking.carrier_tracking_ref)

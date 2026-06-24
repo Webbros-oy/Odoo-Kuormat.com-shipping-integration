@@ -7,6 +7,9 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='delivery_price']" position="before">
                 <field name="wb_kuormat_number_of_items" invisible="delivery_type != 'wb_kuormat'"/>
+              </xpath>
+              <xpath expr="//button[@name='update_price']" position="before">
+                <field name="wb_kuormat_carrier" invisible="delivery_type != 'wb_kuormat' or not wb_kuormat_carrier" readonly="1"/>
             </xpath>
         </field>
     </record>

@@ -4,11 +4,12 @@
         <field name="name">wb.kuormat.book.wizard.form</field>
         <field name="model">wb.kuormat.book.wizard</field>
         <field name="arch" type="xml">
-            <form string="Book Kuormat Shipment">
+            <form string="Book Kuormat.Com Shipment">
                 <group>
                     <field name="picking_id" invisible="1"/>
                     <field name="carrier_id" invisible="1"/>
                     <field name="currency_id" invisible="1"/>
+                    <field name="wb_kuormat_carrier"/>
                     <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                 </group>
                 <notebook>
