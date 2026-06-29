@@ -45,31 +45,6 @@
                 document.cookie = `tz=${userTZ}; path=/`;
             }
         </script>
-        <script type="text/javascript" defer="defer" src="./img/web.assets_frontend_minimal.min.js" onerror="__odooAssetError=1"></script>
-        <script type="text/javascript" onerror="__odooAssetError=1" defer="defer" src="./img/web.assets_frontend_lazy.min.js"></script>
-
-            <script id="tracking_code" async="async" src="./img/js"></script>
-            <script id="tracking_code_config">
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('consent', 'default', {
-                    'ad_storage': 'denied',
-                    'ad_user_data': 'denied',
-                    'ad_personalization': 'denied',
-                    'analytics_storage': 'denied',
-                });
-                gtag('js', new Date());
-                gtag('config', 'G-4FSC44WZ0W');
-                function allConsentsGranted() {
-                    gtag('consent', 'update', {
-                        'ad_storage': 'granted',
-                        'ad_user_data': 'granted',
-                        'ad_personalization': 'granted',
-                        'analytics_storage': 'granted',
-                    });
-                }
-                    allConsentsGranted();
-            </script>
 
             <script type="application/ld+json">
 {
@@ -118,7 +93,7 @@
         <div class="container">
             <div class="row">
                 <div class="o_colored_level col-lg-10 pb4">
-                    <h2><br></h2><h2>&#127468;&#127463; <a href="https://kuormat.com/" class="o_translate_inline">Kuormat.com</a>&nbsp;shipping booking integration</h2>
+                    <h2><br></h2><h2>&#127468;&#127463; <a href="https://kuormat.com/" class="o_translate_inline">Kuormat.com</a>&nbsp;shipment integration</h2>
                 </div>
             </div>
         </div>
@@ -188,7 +163,7 @@
         <div class="s_allow_columns container">
         <div class="row"><div class="col-lg-6 o_colored_level">
           <h2>Price enquiries for orders / quotes</h2>
-          <p>At the order stage, after entering the products, shipping costs are added using Odoo's standard <em>Add shipping</em> feature, which opens a wizard where you choose the delivery method. Here you select one of the previously configured <a href="https://kuormat.com/">Kuormat.com</a>-integrated shipping methods (unless you prefer another).</p><p>The <em>Get price</em> button then fetches the shipping price from <a href="https://kuormat.com/">Kuormat.com</a> for the customer's address and the product weight on the order. You can add your own margin or fixed markup to this carrier cost, just like any other shipping method.</p>
+          <p>At the order stage, after entering the products, shipping costs are added using Odoo's standard <em>Add shipping</em> feature, which opens a wizard where you choose the delivery method. Here you select one of the previously configured <a href="https://kuormat.com/">Kuormat.com</a>-integrated shipping methods (unless you prefer another).</p><p>The <em>Get rate</em> button then fetches the shipping price from <a href="https://kuormat.com/">Kuormat.com</a> for the customer's address and the product weight on the order. You can add your own margin or fixed markup to this carrier cost, just like any other shipping method.</p>
           <p>For certain shipping methods such as parcels, there are maximum weight limits, and the price enquiry will warn if these are about to be exceeded. You can then increase the number of parcels to bring the average weight down — and the shipping cost may rise accordingly.</p></div>
           <div class="col-lg-6 o_colored_level"><p><img src="./img/screenshot_price_query.jpg" alt="" class="img img-fluid" loading="lazy" style="width: 100% !important;"></p></div></div>
         </div>
@@ -203,7 +178,7 @@
                 </div>
                 <div class="o_colored_level col-lg-6" style="order: 2;">
                     <h2>Booking a shipment for a delivery</h2>
-                    <p>The delivery has a new action button <strong>Book transport</strong>, which is used to place the actual transport reservation.</p>
+                    <p>The delivery has a new action button <strong>Book Shipment</strong>, which is used to place the actual transport reservation.</p>
                     <p>By default, the shipping method selected at the order stage is used (e.g. parcels or EUR-pallet), but you can still change it and see how it affects the price. Parcel dimensions can also be updated, as well as stackability — both of which affect the price in certain cases. You can also add more than one parcel, and they can be of different types (e.g. pallet + parcel).</p>
                     <p>When the transport details are correct, you can complete the actual booking with a single button. If it was already clear from the start that the shipment would take one euro-pallet, no details need to be entered at all — the booking can be made immediately.</p>
                     <p>A successful booking is shown on-screen and in the chatter.</p>
@@ -239,7 +214,7 @@
                     <p><img src="./img/screenshot_tracking_link_blurred.jpg" alt="" class="img img-fluid" loading="lazy" style="width: 100% !important;"></p>
                     <p>&nbsp;<br></p>
                 </div>
-                <div class="o_grid_item o_grid_item_image o_colored_level g-height-11 g-col-lg-7 col-lg-7" style="z-index: 2; grid-area: 1 / 6 / 12 / 13;">
+                <div class="o_grid_item o_grid_item_image o_colored_level g-height-11 g-col-lg-7 col-lg-7" style="z-index: 2; grid-area: 1 / 7 / 12 / 12;">
                     <img src="./img/screenshot-postnord.webp" alt="" class="img img-fluid" loading="lazy" style="">
                 </div>
             </div>

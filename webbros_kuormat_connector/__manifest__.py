@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Webbros Kuormat.com shipment integration',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.0.3',
     'category': 'Inventory/Delivery',
     'summary': 'Kuormat.com shipment booking integration',
     'author':  'Webbros',
     'website': 'https://www.webbros.fi/r/Eyq',
-    'images':   ['static/description/icon.png'],
+    'images':   ['static/description/Kuormat_com_shipment_integration.png'],
 
 
     'description': """
